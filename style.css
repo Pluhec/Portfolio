@@ -1,0 +1,85 @@
+@font-face {
+    font-family:"sequelHeavyBody";
+    src: url(fonts/sequel/Sequel\ Sans\ Heavy\ Body.ttf);
+}
+
+@font-face {
+    font-family:"sequelBookDisp";
+    src: url(fonts/sequel/Sequel\ Sans\ Book\ Disp.ttf);
+}
+
+@font-face {
+    font-family:"sequelMediumDisp";
+    src: url(fonts/sequel/Sequel\ Sans\ Medium\ Disp.ttf);
+}
+
+@font-face {
+    font-family:"sequelRomanHead";
+    src: url(fonts/sequel/Sequel\ Sans\ Roman\ Head.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul{
+    list-style-type: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li{
+    font-family: "sequelHeavyBody";
+    font-size: 84px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.button{
+    font-family: "sequelHeavyBody";
+    text-decoration: none;
+}
+
+#close-btn{
+    float: right;
+    margin: 10px;
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-menu{
+    display: flex;
+    bottom: 0; 
+    left: 0;
+}
+
+.footer-content{
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
