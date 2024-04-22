@@ -29,8 +29,9 @@
     --clr-light: #fff;
     --clr-dark: #0C0C0C;
     --clr-primary: #dbffa2;
-    --clr-secondary: #ABABAB;
+    --clr-secondary: #1b1a1a;
     --clr-accent: #ff7750;
+    --clr-button: #D9D9D9;
   
     --foreground: var(--clr-dark);
     --background: var(--clr-light);
@@ -52,6 +53,11 @@
     --foreground: var(--clr-light);
     --background: var(--clr-dark);
 }
+
+::selection { /* Code for Firefox */
+    color: var(--clr-dark);
+    background: var(--clr-light);
+  }
   
 
 *{
@@ -71,8 +77,8 @@ header{
     display: flex;
     justify-content: flex-end;
     justify-content: space-between;
-    margin: 10px 0px;
-    padding: 0 15px;
+    margin: 2vw 0px;
+    padding: 0 1vw;
     color: var(--clr-light);
     font-family: var(--ff-heavy-body);
 }
@@ -80,6 +86,7 @@ header{
 header a{
     text-decoration: none;
     color: var(--clr-light);
+    margin: 1vw;
 }
 
 header a:hover{
@@ -233,9 +240,9 @@ li a:hover{
 
 .introduction h1{
     font-family: var(--ff-medium-disp);
-    font-size: 136px;
-    line-height: 110px;
-    margin: 50px;
+    font-size: 9vw;
+    line-height: 8vw;
+    margin: 2vw 2vw 6vw 2vw;
 }
 
 .introduction-img-flex{
@@ -253,6 +260,7 @@ li a:hover{
 .introduction p{
     color: var(--clr-secondary);
     font-family: var(--ff-roman-head);
+    font-size: 0.8vw;
 }
 
 #introduction-description-flex{
@@ -261,55 +269,164 @@ li a:hover{
 }
 
 #introduction-description{
-    max-width: 70%;
-    margin: 25px;
+    max-width: 75%;
+    margin: 4vw 2vw;
     color: var(--clr-light);
+    font-size: 1.2vw;
+    text-align: left;
 }
 
 
 
-.hobby-img{
-    display: flex;
-    justify-content: center;
-    margin: 35px 0;
+.hobby-img {
+    overflow: hidden;
+    margin: 7vw 0;
 }
-
-.hobby-img img{
-    width: 250px;
-    height: 190px;
-    margin: 10px; 
-    object-fit: cover; 
-    border-radius: 10px; 
+  
+.hobby-img img {
+    min-width: 14vw;
+    min-height: 7vw;
+    max-width: 10vw;
+    max-height: 5vw;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 1vw;
+    overflow: hidden;
 }
-
+  
 
 .services{
     text-align: center;
+    margin: 8vw 0;
 }
 
-.services-content-flex{
-    text-align: center;
-    text-align: center;
+.services-content{
     justify-content: center;
 }
 
-.services h3{
+.services-content p{
+    justify-content: center;
+    margin: auto 0;
+    font-size: 10vw;
+}
+
+
+
+.heading{
     color: var(--clr-secondary);
     font-family: var(--ff-roman-head);
-    font-size: 18px;
+    font-size: 1vw;
+    margin: 2vw 0;
 }
 
 .services-content{
    color: var(--clr-light);
    font-family: var(--ff-bold-head);
-   font-size: 58px;
    display: flex;
+   gap: 1vw;
+   line-height: 5vw;
+}
+
+.services-content p{
+    font-size: 5vw;
 }
 
 .services-content img{
-    width: 160px;
-    height: 90px;
-    margin: 5px;
+    width: 7vw;
+    height: 4vw;
     object-fit: cover;
     border-radius: 50px;
+    margin: auto 0;
 }   
+
+
+
+
+
+.colophon{
+    margin: 0 2vw;
+    color: var(--clr-light);
+}
+
+.colophon-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.colophon-flex h1{
+    font-family: var(--ff-book-disp);
+    font-size: 3vw;
+}
+
+.colophon-container{
+    display: grid;
+    grid-template-columns:  auto auto;
+    gap: 1vw;
+    background-color: transparent;
+}
+
+.colophon-card{
+    width: 600px;
+    height: 400px;
+    border-radius: 25px;
+    background-color: var(--clr-secondary);
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
+.contact{
+    text-align: center;
+    color: var(--clr-light);
+    font-family: var(--ff-heavy-body);
+    margin: 7vw 0;
+}
+
+.contact p{
+    font-size: 4vw;
+}
+
+.button{
+    background-color: var(--clr-button);
+    width: 7.5vw;
+    height: 3vw;
+    border-radius: 40px;
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.button p{
+    text-decoration: none;
+    color: var(--clr-dark);
+    font-family: var(--ff-book-disp);
+    font-size: 1.2vw;
+    background-color: transparent;
+    margin: auto;
+}
+
+
+
+
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 0 0;
+}
+
+footer p{
+    color: var(--clr-light);
+    font-family: var(--ff-book-disp);
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--clr-light);
+    
+}
