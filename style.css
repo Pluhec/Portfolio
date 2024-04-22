@@ -366,12 +366,13 @@ li a:hover{
 }
 
 .colophon-card{
-    width: 600px;
-    height: 400px;
+    width: 35vw;
+    height: 25vw;
     border-radius: 25px;
     background-color: var(--clr-secondary);
-    align-items: center;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
