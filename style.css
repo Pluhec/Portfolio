@@ -23,6 +23,11 @@
     src: url(fonts/sequel/Sequel\ Sans\ Bold\ Head.ttf);
 }
 
+@font-face {
+    font-family:"sequelBookBody";
+    src: url(fonts/sequel/Sequel\ Sans\ Book\ Body.ttf);
+}
+
 
 
 :root{
@@ -41,6 +46,7 @@
     --ff-medium-disp: "sequelMediumDisp", sans-serif;
     --ff-roman-head: "sequelRomanHead", sans-serif;
     --ff-bold-head: "sequelBoldHead", sans-serif;
+    --ff-book-body: "sequelBookBody", sans-serif;
 }
   
 .darkmode{
@@ -353,27 +359,78 @@ li a:hover{
     justify-content: space-between;
 }
 
-.colophon-flex h1{
-    font-family: var(--ff-book-disp);
-    font-size: 3vw;
-}
-
 .colophon-container{
     display: grid;
-    grid-template-columns:  auto auto;
-    gap: 1vw;
+    grid-template-columns: auto auto;
+}
+
+.colophon-card {
+    position: relative; 
+    width: 30vw;
+    height: 20vw;
+    border-radius: 2.2vw;
+    overflow: hidden; 
+    margin: 0.2vw;
+}
+
+.colophon-card video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+}
+
+.colophon-card:hover video {
+    opacity: 1; /* Show the video on hover */
+}
+
+.colophon-card:hover .colophon-card-content{
     background-color: transparent;
 }
 
-.colophon-card{
-    width: 35vw;
-    height: 25vw;
-    border-radius: 25px;
+.colophon-card-content {
+    display: flex; /* Use flexbox to arrange the text content */
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: space-between; /* Space the content vertically */
     background-color: var(--clr-secondary);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: absolute; /* Position the content absolutely over the video */
+    top: 0; /* Align content to the top */
+    left: 0; /* Align content to the left */
+    width: 100%; /* Make content span the entire width of the card */
+    height: 100%; /* Make content span the entire height of the card */
+    padding: 1vw; /* Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+    z-index: 20; /* Keep the content above the video */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
+
+.colophon-card-content h1,
+.colophon-card-content p {
+    color: var(--clr-light);
+    font-family: var(--ff-book-body);
+    font-size: 2vw;
+    background-color: transparent; 
+    padding: 10px; 
+    margin: 0; 
+    transition: color 0.5s ease; 
+}
+
+.colophon-card-content h1 {
+    font-size: 1.5vw;
+}
+
+.colophon-card-content p {
+   font-size: 1.2vw;
+}
+
+
+
+
 
 
 
