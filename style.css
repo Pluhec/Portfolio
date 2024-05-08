@@ -32,14 +32,11 @@
 
 :root{
     --clr-light: #fff;
-    --clr-dark: #0C0C0C;
-    --clr-primary: #dbffa2;
-    --clr-secondary: #1b1a1a;
-    --clr-accent: #ff7750;
+    --clr-dark: #000;
+    --clr-primary: #141414;
+    --clr-accent: #292929;
     --clr-button: #D9D9D9;
-  
-    --foreground: var(--clr-dark);
-    --background: var(--clr-light);
+    --clr-button-hover: #1010c9;
   
     --ff-heavy-body: "sequelHeavyBody", sans-serif;
     --ff-book-disp: "sequelBookDisp", sans-serif;
@@ -50,29 +47,31 @@
 }
   
 .darkmode{
-    --clr-light: #fdffc4;
-    --clr-dark: #00332a;
-    --clr-primary: #202302;
-    --clr-secondary: #00100d;
-    --clr-accent: #ff7750;
-  
-    --foreground: var(--clr-light);
-    --background: var(--clr-dark);
+    --clr-light: #000;
+    --clr-dark: #fff;
+    --clr-primary: #c4c3c3;
+    --clr-accent: #292929;
+    --clr-button: #787878;
+    --clr-button-hover: #1010c9;
 }
 
-::selection { /* Code for Firefox */
-    color: var(--clr-dark);
-    background: var(--clr-light);
-  }
-  
 
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    background-color: var(--clr-dark);
+    box-sizing: border-box; 
+    transition: color 0.8s ease;
 } 
 
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--clr-dark);
+     
+}
 
 
 /*****************
@@ -87,29 +86,59 @@ header{
     padding: 0 1vw;
     color: var(--clr-light);
     font-family: var(--ff-heavy-body);
+    font-size: 1vw;
 }
 
 header a{
-    text-decoration: none;
-    color: var(--clr-light);
     margin: 1vw;
 }
 
-header a:hover{
-    content: 'M3NU';
+#menu-header{
+    justify-content: end;
 }
 
-header a {
+@media screen and (max-width: 768px) {
+
+    header  a{
+        font-size: 2vw;
+    }
+
+    header p{
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    
+    header  a{
+        font-size: 2vw;
+    }
+
+    header p{
+        font-size: 2vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.underline {
     position: relative;
     text-decoration: none;
     color: var(--clr-light);
     transition: color 0.3s ease; 
 }
 
-header a::before{
+.underline::before{
     content: '';
     position: absolute;
-    bottom: -2px; 
+    bottom: -5px; 
     left: 0; 
     width: 0%; 
     height: 2px; 
@@ -117,7 +146,7 @@ header a::before{
     transition: width 0.3s ease; 
 }
 
-header a:hover::before{
+.underline:hover::before{
     width: 100%; 
 }
 
@@ -145,22 +174,29 @@ nav{
 
 li{
     font-family: "sequelHeavyBody";
-    font-size: 84px;
+    font-size: 7vw;
     text-align: center;
-    cursor: pointer;
-    transition: 1s;
 }
 
 li a{
     text-decoration: none;
     z-index: 10;
+    transition: 0.5s;
 }
 
-li a:hover{
+.work-link:hover a{
     filter: blur(10px);
-    transition: 0.7s;
+    transition: 0.5s;
 }
 
+.work-link:hover p{
+    cursor: pointer;
+}
+
+.nav-container {
+    overflow: hidden;
+    width: 100vw;
+}
 
 
 
@@ -184,10 +220,39 @@ li a:hover{
     backface-visibility: hidden; 
 }
 
-.nav-button:hover p{
-    opacity: 1;
-    transform: translate(-50%, -50%) scaleX(1);
+.work-link {
+    position: relative;
 }
+
+.moving-text{
+    width: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Adjust text color as needed */
+    z-index: 1; /* Ensure the <p> element appears on top */
+
+}
+
+.moving-text{
+    width: 100vw;
+    background-color: transparent;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.moving-text{
+    animation: moveText 5s linear infinite;
+}
+
 
 .footer-menu{
     position: fixed;
@@ -196,14 +261,14 @@ li a:hover{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 1vw;
 }
 
 .footer-content{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px; /* Adjust as needed */
+    margin: 1vw; 
 }
 
 .footer-content a{
@@ -242,9 +307,10 @@ li a:hover{
 .introduction{
     color: var(--clr-light);
     text-align: center;
+    position: relative;
 }
 
-.introduction h1{
+.name{
     font-family: var(--ff-medium-disp);
     font-size: 9vw;
     line-height: 8vw;
@@ -264,7 +330,7 @@ li a:hover{
 }
 
 .introduction p{
-    color: var(--clr-secondary);
+    color: var(--clr-primary);
     font-family: var(--ff-roman-head);
     font-size: 0.8vw;
 }
@@ -319,7 +385,7 @@ li a:hover{
 
 
 .heading{
-    color: var(--clr-secondary);
+    color: var(--clr-accent);
     font-family: var(--ff-roman-head);
     font-size: 1vw;
     margin: 2vw 0;
@@ -345,10 +411,6 @@ li a:hover{
     margin: auto 0;
 }   
 
-
-
-
-
 .colophon{
     margin: 0 2vw;
     color: var(--clr-light);
@@ -364,16 +426,126 @@ li a:hover{
     grid-template-columns: auto auto;
 }
 
-.colophon-card {
+@media screen and (max-width: 768px) {
+    .introduction-img-flex p{
+        display: none;
+    }
+
+    .introduction-img-flex img{
+        width: 100vw;
+    }
+
+}
+
+
+
+
+
+
+.tech-stack-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tech-stack-flex .card {
+    flex: 1;
+}
+
+.tech-stack-flex .card:nth-child(-n + 2) {
+    flex: 48.9%; /* Make the first two cards take up half of the width */
+    max-width: 49.8%; /* Limit maximum width to 50% of the viewport */
+    height: 33vw;
+}
+
+.tech-stack-flex .card:nth-child(n + 3) {
+    align-items: center;
+    flex: 32.9%; /* Make the subsequent cards take up one-third of the width */
+    max-width: 32.9%; /* Limit maximum width to one-third of the viewport */
+    height: 25vw;
+}
+
+@media screen and (max-width: 768px) {
+
+    .introduction h1{
+        font-size: 10vw;
+        line-height: 8vw;
+    }
+
+    .tech-stack-flex .card:nth-child(n + 3)  {
+        flex: 48.9%; /* Make the first two cards take up half of the width */
+        max-width: 49.8%; /* Limit maximum width to 50% of the viewport */
+        height: 33vw;
+    }
+
+    .tech-stack-flex .card-content p{
+        font-size: 1.2vw;
+        padding: 0.3vw 1vw;
+        border-radius: 50px;
+    }
+
+    .tech-stack-flex .card-content h1{
+        font-size: 1.5vw;
+    }
+
+    .tech-stack-flex .card-content {
+        padding: 1vw;
+    }
+
+    .tech-stack-flex .card{
+        padding: 0.8vw;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .introduction h1{
+        font-size: 15vw;
+        line-height: 12vw;
+    }
+
+    .tech-stack-flex .card:nth-child(-n + 2) {
+        flex: 100%; 
+        max-width: 100%; 
+        height: 100vw;
+    }
+
+    .tech-stack-flex .card:nth-child(n + 3) {
+        flex: 100%; 
+        max-width: 100%; 
+        height: 100vw;
+    }
+
+    .tech-stack-flex .card-content p{
+        font-size: 2.2vw;
+        padding: 0.6vw 2vw;
+        border-radius: 50px;
+    }
+
+    .tech-stack-flex .card-content h1{
+        font-size: 3.5vw;
+    }
+
+    .tech-stack-flex .card-content {
+        padding: 1vw;
+    }
+
+    .tech-stack-flex .card{
+        padding: 0.8vw;
+    }
+}
+
+  
+
+.card {
     position: relative; 
     width: 30vw;
     height: 20vw;
-    border-radius: 2.2vw;
+    border-radius: 1.5vw;
     overflow: hidden; 
     margin: 0.2vw;
 }
 
-.colophon-card video {
+.card video {
     position: absolute;
     top: 0;
     left: 0;
@@ -385,49 +557,80 @@ li a:hover{
     transition: opacity 0.5s ease; 
 }
 
-.colophon-card:hover video {
+.card:hover video {
     opacity: 1; /* Show the video on hover */
 }
 
-.colophon-card:hover .colophon-card-content{
+.card:hover .card-content{
     background-color: transparent;
 }
 
-.colophon-card-content {
-    display: flex; /* Use flexbox to arrange the text content */
-    flex-direction: column; /* Arrange content vertically */
-    justify-content: space-between; /* Space the content vertically */
-    background-color: var(--clr-secondary);
-    position: absolute; /* Position the content absolutely over the video */
-    top: 0; /* Align content to the top */
-    left: 0; /* Align content to the left */
-    width: 100%; /* Make content span the entire width of the card */
-    height: 100%; /* Make content span the entire height of the card */
-    padding: 1vw; /* Add padding for spacing */
-    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
-    z-index: 20; /* Keep the content above the video */
-    transition: background-color 0.5s ease; /* Smooth transition for background color */
+.card:hover .card-content p{
+    backdrop-filter: blur(15px);
+    background-color: transparent;
+    color: #fff;
 }
 
-.colophon-card-content h1,
-.colophon-card-content p {
+.card:hover .card-content h1{
+    color: #fff;
+}
+
+.card-content {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    background-color: var(--clr-primary);
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    padding: 1vw;
+    box-sizing: border-box;
+    z-index: 20;
+    transition: background-color 0.5s ease;
+}
+
+.card-content h1,
+.card-content p {
     color: var(--clr-light);
     font-family: var(--ff-book-body);
-    font-size: 2vw;
     background-color: transparent; 
+    overflow: hidden;
     padding: 10px; 
     margin: 0; 
     transition: color 0.5s ease; 
+    transition: background-color 0.5s ease; 
 }
 
-.colophon-card-content h1 {
+
+.card-content p {
+    background-color: var(--clr-dark);
+    padding: 0.3vw 1vw;
+    border-radius: 0.9vw;
+    display: inline-block; /* Ensure the background only takes up the width of the text */
+}
+
+.card-content h1 {
     font-size: 1.5vw;
 }
 
-.colophon-card-content p {
-   font-size: 1.2vw;
+.card-content p {
+   font-size: 1vw;
 }
 
+.card-icon {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left-heading{
+    font-family: var(--ff-bold-head);
+    font-size: 3.5vw;
+}
 
 
 
@@ -443,27 +646,36 @@ li a:hover{
     margin: 7vw 0;
 }
 
+.contact h1{
+    font-size: 8vw;
+}
+
 .contact p{
     font-size: 4vw;
 }
 
 .button{
     background-color: var(--clr-button);
-    width: 7.5vw;
-    height: 3vw;
+    width: 9vw;
+    height: 3.5vw;
     border-radius: 40px;
     display: flex;
 	flex-direction: row;
 	align-items: center;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 4vw;
+}
+
+.button:hover{
+    background-color: var(--clr-button-hover);
+    color: var(--clr-light);
 }
 
 .button p{
     text-decoration: none;
     color: var(--clr-dark);
     font-family: var(--ff-book-disp);
-    font-size: 1.2vw;
+    font-size: 1.6vw;
     background-color: transparent;
     margin: auto;
 }
@@ -475,7 +687,7 @@ li a:hover{
 footer{
     display: flex;
     justify-content: space-between;
-    margin: 50px 0 0 0;
+    margin: 5vw 2vw 2vw 2vw;
 }
 
 footer p{
@@ -488,3 +700,37 @@ footer a{
     color: var(--clr-light);
     
 }
+
+#menu-footer{
+    margin: 0;
+}
+
+.built{
+    max-width: 220px;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.footer-soc-links{
+    display: flex;
+    margin: 0 40px;
+    font-size: 1vw;
+}
+
+.link-icon{
+    width:  1vw;
+}
+
+.footer-soc-links-flex{
+    display: flex;
+    gap: 1vw;
+    margin: 0 1.2vw;
+}
+
+.bck-top-btn{
+    font-family: var(--ff-medium-disp);
+    font-size: 1vw;
+}
+
+
+

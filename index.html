@@ -9,11 +9,12 @@
 <body>
     <header id="top-of-the-page">
         <p>logo</p>
-        <a href="menu.html">MENU</a>
+        <p id="dark-mode-toggle" class="dark-mode-toggle" src="night-mode.png" alt="">Light mode</p>
+        <a class="underline" href="menu.html">MENU</a>
     </header>
     <main>
         <div class="introduction">
-            <h1 class="name">JAKUB<br>PLUHACEK</h1>
+            <h1 id="main-heading-animation" class="name">JAKUB<br>PLUHACEK</h1>
             <div class="introduction-img-flex">
                 <p>NEJAKY TEXTIK CO TE NAPADNE</p>
                 <img src="Pictures/the-nigmatic-YefEvN5CDLY-unsplash.jpg" alt="">
@@ -56,49 +57,57 @@
                 </div>
                 <div class="services-content">
                     <p>HARDWARE</p>
-                    <img src="Photos/Service-photos/Hardware.jpg" alt="">
+                    <img class="video-hover" src="Photos/Service-photos/Hardware.jpg" alt="">
                 </div>
             </div>    
         </div>
         <div class="colophon">
             <div class="colophon-flex">
-                <h1>Colophon</h1>
+                <h1 class="left-heading">Colophon</h1>
                 <!-- colophon-container = display grid -->
                 <div class="colophon-container"> 
-                    <a href="#" class="colophon-card">
+                    <a target="_blank" href="https://unsplash.com" class="card">
                         <video autoplay loop muted>
-                            <source src="Videos/10994873-hd_1080_1920_25fps.mp4" type="video/mp4">
+                            <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                         </video>
-                        <div class="colophon-card-content">
-                            <p>ICONS</p>
+                        <div class="card-content">
+                            <div>
+                                <p>STOCK</p>
+                            </div>
+                            <h1 class="card-h1">Images by Unsplash</h1>
+                        </div>
+                    </a>
+                    <a target="_blank" href="https://pexels.com" class="card">
+                        <video autoplay loop muted>
+                            <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-content">
+                            <div>
+                                <p>STOCK</p>
+                            </div>
+                            <h1 class="card-h1">Videos by Pexels</h1>
+                        </div>
+                    </a>
+                    <a target="_blank" href="https://www.flaticon.com" class="card">
+                        <video autoplay loop muted>
+                            <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="card-content">
+                            <div>
+                                <p>ICONS</p>
+                            </div>
                             <h1 class="card-h1">Icons by Flaticon</h1>
                         </div>
                     </a>
-                    <a href="#" class="colophon-card">
+                    <a target="_blank" href="https://twitter.com/designedbypaul" class="card">
                         <video autoplay loop muted>
-                            <source src="Videos/10994873-hd_1080_1920_25fps.mp4" type="video/mp4">
+                            <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                         </video>
-                        <div class="colophon-card-content">
-                            <p>ICONS</p>
-                            <h1 class="card-h1">Icons by Flaticon</h1>
-                        </div>
-                    </a>
-                    <a href="#" class="colophon-card">
-                        <video autoplay loop muted>
-                            <source src="Videos/10994873-hd_1080_1920_25fps.mp4" type="video/mp4">
-                        </video>
-                        <div class="colophon-card-content">
-                            <p>ICONS</p>
-                            <h1 class="card-h1">Icons by Flaticon</h1>
-                        </div>
-                    </a>
-                    <a href="#" class="colophon-card">
-                        <video autoplay loop muted>
-                            <source src="Videos/10994873-hd_1080_1920_25fps.mp4" type="video/mp4">
-                        </video>
-                        <div class="colophon-card-content">
-                            <p>ICONS</p>
-                            <h1 class="card-h1">Icons by Flaticon</h1>
+                        <div class="card-content">
+                            <div>
+                                <p>DESIGN</p>
+                            </div>
+                            <h1 class="card-h1">Design inspired by Paul</h1>
                         </div>
                     </a>
                 </div>
@@ -106,22 +115,35 @@
         </div>
         <div class="contact">
             <h3 class="heading">CONTACT</h3>
-            <h1>
-                <p>HAVE A COOL PROJECT?</p>
-                <a href="contact.html" class="button">
+                <h1>HAVE A COOL <br>PROJECT?</h1>
+                    <a href="contact.html" class="button">
                     <p >Let's Talk</p>
                 </a>
-            </h1>
         </div>
     </main>
     <footer>
-        <p>BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
+        <p class="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
         <div class="footer-soc-links">
-            <a href="">Github</a>
-            <a href="">Slack</a>
-            <a href="">Discord</a>
+            <a href="">
+                <div class="footer-soc-links-flex underline">
+                    <p>Github</p>
+                    <img class="link-icon" src="Icons/link-white.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="footer-soc-links-flex underline">
+                    <p>Slack</p>
+                    <img class="link-icon" src="Icons/link-white.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="footer-soc-links-flex underline">
+                    <p>Discord</p>
+                    <img class="link-icon" src="Icons/link-white.png" alt="">
+                </div>
+            </a>
         </div>
-        <a href="top-of-the-page">BACK TO TOP</a>
+        <a href="#top-of-the-page"><p class="underline bck-top-btn">BACK TO TOP</p></a>
     </footer>
     
     
