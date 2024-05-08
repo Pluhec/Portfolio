@@ -28,43 +28,39 @@ TOTO POD TIMTO KOMENTAREM POUZIT NA COLOPHON HEADING, BUDE TO MOZNA FUNGOVAT
 // })
 
 
-const darkModeToggle = document.querySelector('#dark-mode-toggle');
-const darkImg = document.getElementsByClassName('link-icon');
-let darkMode = localStorage.getItem('darkMode');
+let darkMode = localStorage.getItem('darkMode'); // ulozeni do uzivatelova prohlizece, aby kdyz znovu nacte web tak aby se mu zobralil mode ktery si predtim nastavil
+const darkModeToggle = document.querySelector('#dark-mode-toggle'); // vythanuti z tagu z HTML
+const darkImg = document.getElementsByClassName('link-icon') // vythanuti z tagu z HTML
 
-// Function to enable dark mode
-const enableDarkMode = () => {
-  document.body.classList.add('darkmode');
-  localStorage.setItem('darkMode', 'enabled');
-  darkModeToggle.innerHTML = "Dark mode";
-  for (let i = 0; i < darkImg.length; i++) {
-    darkImg[i].src = ('Icons/link-black.png');
+const enableDarkMode = () => { 
+  document.body.classList.add('darkmode'); // pridavani classy
+  localStorage.setItem('darkMode', 'enabled'); // ukladani promene do local storage
+  darkModeToggle.innerHTML = "Dark mode"; // zmena napisu pri zmeneni barvy
+  for (let i = 0; i< darkImg.length; i++) { // menim ikonu tim ze projedu to pole a zmenim kazdy img v poli
+    darkImg[i].src = ('Icons/link-black.png')
+  }
+  for (let i = 0; i< darkImg.length; i++) { // menim ikonu tim ze projedu to pole a zmenim kazdy img v poli
+    darkImg[i].src = ('Icons/link-black.png')
   }
 }
 
-// Function to disable dark mode
 const disableDarkMode = () => {
   document.body.classList.remove('darkmode');
   localStorage.setItem('darkMode', null);
-  darkModeToggle.innerHTML = "Light mode";
-  for (let i = 0; i < darkImg.length; i++) {
-    darkImg[i].src = ('Icons/link-white.png');
+  darkModeToggle.innerHTML = "Light mode"; 
+
+  for (let i = 0; i< darkImg.length; i++) { 
+    darkImg[i].src = ('Icons/link-white.png')
   }
 }
 
-// Check user's preference based on OS/browser settings
-const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-// Set dark mode based on user's preference
-if (darkMode === 'enabled' || (darkMode === null && prefersDarkMode)) {
+if (darkMode === 'enabled') {
   enableDarkMode();
-} else {
-  disableDarkMode();
 }
 
-// Event listener for dark mode toggle
 darkModeToggle.addEventListener('click', () => {
   darkMode = localStorage.getItem('darkMode');
+
   if (darkMode !== 'enabled') {
     enableDarkMode();
   } else {
