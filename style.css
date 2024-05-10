@@ -97,7 +97,7 @@ header a{
     justify-content: end;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
 
     header  a{
         font-size: 2vw;
@@ -108,7 +108,7 @@ header a{
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 800px) {
     
     header  a{
         font-size: 2vw;
@@ -161,6 +161,10 @@ ul{
     list-style-type: none;
 }
 
+#nav-bar{
+    display: none;
+}
+
 nav{
     display: flex;
     align-items: center;
@@ -182,15 +186,23 @@ li a{
     text-decoration: none;
     z-index: 10;
     transition: 0.5s;
+    color: var(--clr-light); 
+
 }
 
-.work-link:hover a{
+.work-link:hover .blured{
     filter: blur(10px);
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .work-link:hover p{
     cursor: pointer;
+}
+
+.work-link:hover .moving-text {
+    opacity: 1;
+    transition: opacity 0.5s ease; 
 }
 
 .nav-container {
@@ -224,15 +236,22 @@ li a{
     position: relative;
 }
 
-.moving-text{
-    width: 100vw;
+.moving-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff; /* Adjust text color as needed */
     z-index: 1; /* Ensure the <p> element appears on top */
+    display: flex;
+    font-size: 1vw;
+    opacity: 0;
+    text-wrap: nowrap;
+    animation: moveText 8s linear infinite; /* Keep the animation always running */
+}
 
+.moving-text a {
+    padding: 2vw;
 }
 
 .moving-text{
@@ -242,17 +261,12 @@ li a{
 
 @keyframes moveText {
     0% {
-        transform: translateX(100%);
+      left: 50%;
     }
     100% {
-        transform: translateX(-100%);
+      left: -1%;
     }
 }
-
-.moving-text{
-    animation: moveText 5s linear infinite;
-}
-
 
 .footer-menu{
     position: fixed;
@@ -344,7 +358,7 @@ li a{
     max-width: 75%;
     margin: 4vw 2vw;
     color: var(--clr-light);
-    font-size: 1.2vw;
+    font-size: 1.8vw;
     text-align: left;
 }
 
@@ -426,14 +440,73 @@ li a{
     grid-template-columns: auto auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+
     .introduction-img-flex p{
         display: none;
     }
 
     .introduction-img-flex img{
-        width: 100vw;
+        width: 100%;
     }
+
+    #introduction-description{
+        font-size: 2.5vw;
+    }
+
+    .hobby-img img{
+        min-width: 30vw;
+    min-height: 18vw;
+    max-width: 20vw;
+    max-height: 15vw;
+    }
+
+    .services{
+        margin-left: 4vw;
+        margin-right: 4vw;
+    }
+
+    .heading{
+        font-size: 2.5vw;
+    }
+
+    .services-content{
+        justify-content: left;
+    }
+
+    .services-content p{
+        font-size: 9vw;
+        line-height: 8vw;
+    }
+
+    .services-content img{
+        display: none;
+    }
+
+    .colophon-flex{
+        display: block;
+    }
+
+    .colophon-flex h1{
+        font-size: 5vw;
+        margin: 3vw 0;
+    }
+
+    .colophon-container .card{
+        width: 48vw;
+        height: 40vw;
+    }
+
+    .colophon-container .card-content p{
+        font-size: 2vw;
+        border-radius: 50px;
+        padding: 0.3vw 1.2vw;
+    }
+
+    .colophon-container .card-content h1{
+        font-size: 3vw;
+    }
+
 
 }
 
@@ -464,7 +537,7 @@ li a{
     height: 25vw;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
     .introduction h1{
         font-size: 10vw;
@@ -496,7 +569,7 @@ li a{
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 800px) {
 
     .introduction h1{
         font-size: 15vw;
@@ -633,6 +706,15 @@ li a{
 }
 
 
+@media screen and (max-width: 1024px) {
+
+    .left-heading{
+        font-size: 4vw;
+    }
+}
+
+
+
 
 
 
@@ -680,6 +762,28 @@ li a{
     margin: auto;
 }
 
+
+@media screen and (max-width: 1024px){
+
+    .contact h1{
+        font-size: 12vw;
+        margin: 4vw 0 2vw 0;
+    }
+
+    .contact p{
+        font-size: 7vw;
+    }
+
+    .button{
+        width: 18vw;
+        height: 7vw;
+    }
+
+    .button p{
+        font-size: 3.5vw;
+    }
+
+}
 
 
 

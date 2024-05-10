@@ -27,6 +27,27 @@ TOTO POD TIMTO KOMENTAREM POUZIT NA COLOPHON HEADING, BUDE TO MOZNA FUNGOVAT
 
 // })
 
+/*******
+ NAV OPENING 
+********/
+
+function openNav() {
+  var x = document.getElementById("nav-bar");
+  var y = document.getElementById("main-content");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    y.style.display = "block";
+
+  } else {
+    x.style.display = "block";
+    y.style.display = "none";
+  }
+}
+
+
+/*******
+DARKMODE
+********/
 
 let darkMode = localStorage.getItem('darkMode'); // ulozeni do uzivatelova prohlizece, aby kdyz znovu nacte web tak aby se mu zobralil mode ktery si predtim nastavil
 const darkModeToggle = document.querySelector('#dark-mode-toggle'); // vythanuti z tagu z HTML
