@@ -509,6 +509,10 @@ li a{
         font-size: 3vw;
     }
 
+    .card video{
+        display: none;
+    }
+
 
 }
 
