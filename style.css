@@ -303,6 +303,8 @@ li a{
 
 
 
+
+
 .button{
     font-family: "sequelHeavyBody";
     text-decoration: none;
@@ -505,6 +507,47 @@ li a{
 
     .colophon-container .card-content h1{
         font-size: 3vw;
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+
+    #introduction-description{
+        font-size: 3.5vw;
+    }
+
+    .hobby-img img{
+        min-width: 30vw;
+        min-height: 15vw;
+        max-width: 20vw;
+        max-height: 13vw;
+    }
+
+    .services-content{
+        justify-content: center;
+    }
+
+    .colophon-container{
+       display: flex;
+       flex-direction: column;
+    }
+
+    .colophon-container .card{
+        width: 96vw;
+        height: 70vw;
+        margin: 0.2vw;
+    }
+
+    .colophon-container .card-content p{
+        font-size: 3vw;
+        border-radius: 50px;
+        padding: 0.4vw 1.7vw;
+    }
+
+    .colophon-container .card-content h1{
+        font-size: 4vw;
     }
 
 
@@ -838,3 +881,79 @@ footer a{
 
 
 
+
+
+
+
+.contact-flex{
+    display: flex;
+    height: 100vh;
+}
+
+.contact-video{
+    border-radius: 50px;
+    
+}
+
+.contact-video video{
+    width: 58vw;
+    height: 20vw;
+    background-size: contain;
+}
+
+.contact-input-two{
+    display: flex;
+}
+
+.contact-input-two input{
+    width: 48.9%;
+}
+
+.time{
+    font-family: var(--ff-roman-head);
+    color: var(--clr-light);
+    text-align: center;
+    margin: 7vw 0;
+}
+
+.time p{
+    font-size: 1vw;
+}
+
+.time h1{
+    font-size: 8vw;
+}
+
+@media screen and (max-width: 1024px){
+
+    footer{
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10vw;
+    }
+
+    .footer-soc-links{
+        order: 0;
+        margin: auto;
+        font-size: 3vw;
+    }
+
+    .built{
+        order: 1;
+        margin: auto;
+        font-size: 2vw;
+    }
+
+    .bck-top-btn{
+        order: 2;
+        text-align: center;
+        font-size: 3vw;
+        margin: 5vw 0;
+    }
+
+    .link-icon{
+        width: 3vw;
+        height: 3vw;
+    }
+
+}
