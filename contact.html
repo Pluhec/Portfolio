@@ -147,32 +147,38 @@
 
 
     <div id="main-content">
-        <header id="top-of-the-page" >
+        <header id="top-of-the-page">
             <p class="animate__animated animate__fadeIn">logo</p>
             <p class="animate__animated animate__fadeIn" id="dark-mode-toggle" class="dark-mode-toggle" src="night-mode.png" alt="">Light mode</p>
             <a class="animate__animated animate__fadeIn" class="underline nav-opening" onclick="openNav()">MENU</a>
         </header>
         <main>
             <div class="contact-flex">
-                <h1>Contact</h1>
-                <p>Right now im open to new projects, cooperations or contracts. You can contact me down there, I’ll respond as soon as possible. </p>
-                <div class="contact-input-container">
-                    <div class="contact-input-two">
-                        <input placeholder="Name" type="text">
-                        <input placeholder="Email" type="text">
+                <div class="contact-input">
+                    <h1>Contact</h1>
+                    <p>Right now im open to new projects, cooperations or contracts. You can contact me down there, I’ll respond as soon as possible. </p>
+                    <div class="contact-input-container">
+                        <div class="contact-input-two">
+                            <input placeholder="Name" type="text">
+                            <input placeholder="Email" type="text">
+                        </div>
+                        <input class="message" placeholder="Your message" type="text">
+                        <button>Submit</button>
                     </div>
-                    <input placeholder="message" type="text">
-                    <button>Submit</button>
                 </div>
-                <div class="contact-video">
-                    <video autoplay loop muted>
-                        <source src="Videos/10994873-hd_1080_1920_25fps.mp4" type="video/mp4">
-                    </video>
+                <div class="contact-img">
+                    <img src="Photos/Contact-photos/contact-abstract.png" alt="">
                 </div>
             </div>
             <div class="time">
                 <p>Local Time <br> [Zlín, Czech Republic]</p>
-                <h1>19:30:12</h1>
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div>
             </div>
             
             
@@ -207,5 +213,24 @@
     
     <script src="darkmode.js"></script>
     <script src="nav.js"></script>
+    <script src="clock.js"></script>
+    <script type="text/javascript">
+        function calcTime(city,offset){
+            var b=new Date()
+            var utc=b.getTime()+(b.getTimezoneOffset()*60000);
+            var nd=new Date(utc+(3600000*offset));
+            return "the local time of "+city+" is"+nd.toLocaleString();
+    
+        }
+        
+        //get specific country time
+        console.log(calcTime('argentina','-3'))
+        console.log(calcTime('afganistan','+4.3'))
+        console.log(calcTime('Denmark','+2'))
+        console.log(calcTime('japan','+9'))
+    
+    
+    
+    </script>
 </body>
 </html>
