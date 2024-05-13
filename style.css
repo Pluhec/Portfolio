@@ -918,10 +918,10 @@ footer a{
     width: 100%;
     background-color: var(--clr-accent);
     margin-top: 0.4%;
-    padding: 20px;
+    padding: 2vw;
     padding-bottom: 30%;
     border: none;
-    border-radius: 15px;
+    border-radius: 1vw;
     background-color: var(--clr-accent);
     color: var(--clr-light);
     font-family: var(--ff-book-disp);
@@ -938,9 +938,9 @@ footer a{
 
 .contact-input-two input{
     width: 49.8%;
-    padding: 20px;
+    padding: 2vw;
     border: none;
-    border-radius: 15px;
+    border-radius: 1vw;
     background-color: var(--clr-accent);
     color: var(--clr-light);
     font-family: var(--ff-book-disp);
@@ -959,9 +959,9 @@ footer a{
     background-color: var(--clr-light);
     cursor: pointer;
     margin-top: 0.4%;
-    padding: 15px;
+    padding: 1.7vw;
     border: none;
-    border-radius: 10px;
+    border-radius: 1vw;
     color: var(--clr-dark);
     font-family: var(--ff-medium-disp);
     font-size: 1.2vw;
