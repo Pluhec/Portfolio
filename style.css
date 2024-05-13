@@ -1014,7 +1014,7 @@ footer a{
         display: none;
     }
 
-    .blured:hover{
+    .work-link:hover .blured{
         filter: none;
     }
 
