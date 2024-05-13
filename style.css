@@ -1014,6 +1014,10 @@ footer a{
         display: none;
     }
 
+    .blured:hover{
+        filter: none;
+    }
+
     .work-link a{
         font-size: 15vw;
     }
