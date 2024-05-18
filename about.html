@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="node_modules/all-animaton/dist/all-animation.css" />
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div id="nav-bar">
-        <header id="menu-header">
+        <header id="menu-header" class="animate__animated animate__fadeInDown">
             <a class="underline nav-opening" onclick="openNav()">[ CLOSE ]</a>
-            <button id="dark-mode-toggle" class="dark-mode-toggle" src="night-mode.png" alt=""></button>
         </header>
     
         <main>
             <nav>
                 <ul>
-                    <div class="nav-container">
+                    <div class="nav-container animate__animated animate__fadeIn">
                         <li class="work-link" class="nav-button">
                             <a class="blured" href="index.html">WORK</a>
                             <div class="moving-text">
@@ -127,46 +126,48 @@
         </main>
     
         <footer id="menu-footer">
-            <div class="footer-menu">
+            <div class="footer-menu animate__animated animate__fadeInUp" >
                 <div class="footer-content underline">
-                    <a href="#"><p>Github</p>&#8599;</a>
+                    <a target="_blank" href="https://github.com/Pluhec">Github<img class="link-icon" src="Icons/link-white.png" alt=""></a>
                 </div>
                 <div class="footer-content underline">
-                    <a href="#">
-                        <p>Instagram<img class="link-icon" src="Icons/link-white.png" alt=""></p>
-                    </a>
+                   <a target="_blank" href="https://join.slack.com/t/slack-q0m4092/shared_invite/zt-2j0kv43fp-H3S8CKl9lS0DA_1_7YjA8A">Slack<img class="link-icon" src="Icons/link-white.png" alt=""></a>
                 </div>
                 <div class="footer-content underline">
-                    <a href="#"><p>Discord</p>&#8599;</a>
+                    <a target="_blank" href="https://discordapp.com/users/506890176232947713">Discord<img class="link-icon" src="Icons/link-white.png" alt=""></a>
                 </div>
             </div>
         </footer>
-    
     </div>
 
 
     <div id="main-content">
-        <header id="top-of-the-page">
-            <p>logo</p>
-            <p id="dark-mode-toggle" class="dark-mode-toggle" src="night-mode.png" alt="">Light mode</p>
-            <a class="underline nav-opening" onclick="openNav()">MENU</a>
+        <header id="top-of-the-page" class="animate__animated animate__fadeInDown">
+            <div class="nav-bar-boxes">
+                <a href="index.html"><img id="jp-logo" src="Icons/jp-logo-white.png" alt=""></a>
+                <a href="cz/about.html" class="underline cz-en-button">CZ/EN</a>
+            </div>
+
+            <div class="nav-bar-boxes">
+                <img id="dark-mode-toggle" class="dark-mode-toggle" src="Icons/sun.png" alt="">
+                <a class="underline nav-opening" onclick="openNav()">MENU</a>
+            </div>
         </header>
         <main>
             <div class="introduction">
-                <h1 id="main-heading-animation" class="name">JAKUB<br>PLUHACEK</h1>
+                <h1 id="main-heading-animation" class="name animate__animated animate__fadeInDown">JAKUB<br>PLUHACEK</h1>
                 <div class="introduction-img-flex">
-                    <p>NEJAKY TEXTIK CO TE NAPADNE</p>
-                    <img src="Pictures/the-nigmatic-YefEvN5CDLY-unsplash.jpg" alt="">
-                    <p>NEJAKY TEXTIK CO TE NAPADNE</p>
+                    <p data-aos="fade-up"> IF AT FIRST YOU DON’T SUCCEED;<br> CALL IT VERSION 1.0</p>
+                    <img class="animate__animated animate__fadeInUp" src="Pictures/the-nigmatic-YefEvN5CDLY-unsplash.jpg" alt="">
+                    <p data-aos="fade-up">CODE IS LIKE HUMOR. <br> YOU HAVE TO EXPLAIN IT, IT’S BAD</p>
                 </div>
-                <div id="introduction-description-flex">
-                    <p id="introduction-description">
+                <div id="introduction-description-flex" data-aos="fade-up">
+                    <p id="introduction-description" >
                         My name is Jakub Pluháček. I was born in Zlín and I’m studying game development and multimedia applications at Creative Hill College in Zlín. Currently I’m most interested in web development and home automation. 
-                        <!-- Jmenuji se Jakub Pluháček. Narodil jsem se ve Zlíně a tady momentálně studuji střední odbornou školu Creative Hill College, přesněji studuji obor vývoj počítačových her a multimediálních aplikací. Zatím se nejvíce zajímám o tvoření webových stránek nebo webových aplikací a dále pak o automatizaci domácnosti.  -->
                     </p>
                 </div>
             </div>
-            <div class="hobby-img">
+            <div class="hobby-img" data-aos="fade-up">
                 <marquee behavior="alternate" direction="left">
                     <img src="Photos/Hobby-photos/Hardware.jpg" alt="">
                     <img src="Photos/Hobby-photos/Camera.jpg" alt="">
@@ -183,21 +184,21 @@
                 </marquee>
             </div>
             <div class="services">
-                <h3 class="heading">SERVICES</h3>
+                <h3 class="heading" data-aos="fade-up">SERVICES</h3>
                 <div class="services-content-flex">
-                    <div class="services-content">
+                    <div class="services-content" data-aos="fade-up">
                         <img src="Photos/Service-photos/3d Print.jpg" alt="">
                         <p>3D PRINT</p>
                     </div>
-                    <div class="services-content">
+                    <div class="services-content" data-aos="fade-up">
                         <p>PHOTOGRAPHY</p>
                         <img src="Photos/Service-photos/Photography.jpg" alt="">
                     </div>
-                    <div class="services-content">
+                    <div class="services-content" data-aos="fade-up">
                         <img src="Photos/Service-photos/Web Development.jpg" alt="">
                         <p>WEB DEVELOPMENT</p>
                     </div>
-                    <div class="services-content">
+                    <div class="services-content" data-aos="fade-up">
                         <p>HARDWARE</p>
                         <img class="video-hover" src="Photos/Service-photos/Hardware.jpg" alt="">
                     </div>
@@ -205,9 +206,9 @@
             </div>
             <div class="colophon">
                 <div class="colophon-flex">
-                    <h1 class="left-heading">Colophon</h1>
+                    <h1 class="left-heading" data-aos="fade-up">Colophon</h1>
                     <div class="colophon-container"> 
-                        <a target="_blank" href="https://unsplash.com" class="card">
+                        <a target="_blank" href="https://unsplash.com" class="card" data-aos="zoom-in">
                             <video playsinline autoplay loop muted>
                                 <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                             </video>
@@ -218,7 +219,7 @@
                                 <h1 class="card-h1">Images by Unsplash</h1>
                             </div>
                         </a>
-                        <a target="_blank" href="https://pexels.com" class="card">
+                        <a target="_blank" href="https://pexels.com" class="card" data-aos="zoom-in">
                             <video playsinline autoplay loop muted>
                                 <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                             </video>
@@ -229,7 +230,7 @@
                                 <h1 class="card-h1">Videos by Pexels</h1>
                             </div>
                         </a>
-                        <a target="_blank" href="https://www.flaticon.com" class="card">
+                        <a target="_blank" href="https://www.flaticon.com" class="card" data-aos="zoom-in">
                             <video playsinline autoplay loop muted>
                                 <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                             </video>
@@ -240,7 +241,7 @@
                                 <h1 class="card-h1">Icons by Flaticon</h1>
                             </div>
                         </a>
-                        <a target="_blank" href="https://twitter.com/designedbypaul" class="card">
+                        <a target="_blank" href="https://twitter.com/designedbypaul" class="card" data-aos="zoom-in">
                             <video playsinline autoplay loop muted>
                                 <source src="Videos/10994870-hd_1080_1920_25fps.mp4" type="video/mp4">
                             </video>
@@ -255,29 +256,29 @@
                 </div>
             </div>
             <div class="contact">
-                <h3 class="heading">CONTACT</h3>
-                    <h1>HAVE A COOL <br>PROJECT?</h1>
-                        <a href="contact.html" class="button">
+                <h3 class="heading" data-aos="fade-up">CONTACT</h3>
+                    <h1 data-aos="fade-up">HAVE A COOL <br>PROJECT?</h1>
+                        <a href="contact.html" class="button" data-aos="zoom-in">
                         <p >Let's Talk</p>
                     </a>
             </div>
         </main>
-        <footer>
+        <footer data-aos="fade-up" data-aos-once="true">
             <p class="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
             <div class="footer-soc-links">
-                <a href="">
+                <a target="_blank" href="https://github.com/Pluhec">
                     <div class="footer-soc-links-flex underline">
                         <p>Github</p>
                         <img class="link-icon" src="Icons/link-white.png" alt="">
                     </div>
                 </a>
-                <a href="">
+                <a target="_blank" href="https://join.slack.com/t/slack-q0m4092/shared_invite/zt-2j0kv43fp-H3S8CKl9lS0DA_1_7YjA8A">
                     <div class="footer-soc-links-flex underline">
                         <p>Slack</p>
                         <img class="link-icon" src="Icons/link-white.png" alt="">
                     </div>
                 </a>
-                <a href="">
+                <a target="_blank" href="https://discordapp.com/users/506890176232947713">
                     <div class="footer-soc-links-flex underline">
                         <p>Discord</p>
                         <img class="link-icon" src="Icons/link-white.png" alt="">
@@ -291,8 +292,11 @@
     </div>
     
     
-    
     <script src="darkmode.js"></script>
     <script src="nav.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

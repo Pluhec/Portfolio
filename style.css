@@ -35,6 +35,7 @@
     --clr-dark: #000;
     --clr-primary: #141414;
     --clr-accent: #292929;
+    --clr-accent2: #707070;
     --clr-button: #D9D9D9;
     --clr-button-hover: #1010c9;
   
@@ -51,6 +52,7 @@
     --clr-dark: #fff;
     --clr-primary: #c4c3c3;
     --clr-accent: #616161;
+    --clr-accent2: #292929;
     --clr-button: #787878;
     --clr-button-hover: #1010c9;
 }
@@ -89,18 +91,55 @@ header{
     font-size: 1vw;
 }
 
+.dark-mode-toggle{
+    width: 1.8vw;
+    cursor: pointer;
+}
+
+#jp-logo{
+    width: 3.5vw;
+}
+
+.cz-en-button{
+    color: var(--clr-light);
+    font-family: var(--ff-heavy-body);
+    text-decoration: none;
+}
+
 #menu-header{
     justify-content: end;
 }
 
-@media screen and (max-width: 850px) {
+.nav-bar-boxes{
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
 
-    header  a{
-        font-size: 2vw;
+.nav-bar-right img{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    
+    header {
+        margin: 20px 0;
     }
 
-    header p{
-        font-size: 2vw;
+    #jp-logo{
+        width: 5.5vw;
+    }
+
+    .nav-bar-boxes {
+        gap: 30px;
+    }
+
+    .nav-bar-boxes a{
+        font-size: 3.7vw;
+    }
+
+    .nav-bar-boxes img{
+        width: 5vw;
     }
 }
 
@@ -114,6 +153,7 @@ header{
         font-size: 2vw;
     }
 }
+
 
 
 
@@ -215,6 +255,7 @@ li a{
 
 
 
+
 .nav-button{
     position: relative;
 }
@@ -287,9 +328,11 @@ li a{
 
 .footer-content a{
     color: var(--clr-light);
-    font-family: var(--ff-body);
+    font-family: var(--ff-book-disp);
     text-decoration: none;
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 
@@ -333,6 +376,13 @@ li a{
     margin: 2vw 2vw 6vw 2vw;
 }
 
+.cz-name{
+    font-family: var(--ff-medium-disp);
+    font-size: 9vw;
+    line-height: 9vw;
+    margin: 2vw 2vw 6vw 2vw;
+}
+
 .introduction-img-flex{
     display: flex;
     align-items: center;
@@ -346,7 +396,7 @@ li a{
 }
 
 .introduction p{
-    color: var(--clr-primary);
+    color: var(--clr-accent2);
     font-family: var(--ff-roman-head);
     font-size: 0.8vw;
 }
@@ -397,7 +447,6 @@ li a{
     margin: auto 0;
     font-size: 10vw;
 }
-
 
 
 .heading{
@@ -480,6 +529,11 @@ li a{
         font-size: 9vw;
         line-height: 8vw;
     }
+
+    .services-content-cz p{
+        line-height: 9vw;
+    }
+
 
     .services-content img{
         display: none;
@@ -788,11 +842,13 @@ li a{
 	align-items: center;
     margin: auto;
     margin-top: 4vw;
+    transition: background-color 0.5s ease;
 }
 
 .button:hover{
     background-color: var(--clr-button-hover);
-    color: var(--clr-light);
+    color: var(--clr-dark);
+    transition: background-color 0.5s ease;
 }
 
 .button p{
@@ -802,6 +858,12 @@ li a{
     font-size: 1.6vw;
     background-color: transparent;
     margin: auto;
+    transition: color 0.5s ease;
+}
+
+.button:hover p{
+    color: #fff;
+    transition: color 0.5s ease;
 }
 
 
@@ -888,12 +950,12 @@ footer a{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 90vh;
+    width: 99vw;
 }
 
 .contact-img img{
-    width: 30vw;
-    height: 40vw;
+    width: 40vw;
+    height: auto;
     background-size: cover;
 }
 
@@ -944,14 +1006,23 @@ footer a{
     background-color: var(--clr-accent);
     color: var(--clr-light);
     font-family: var(--ff-book-disp);
-    font-size: 1vw;
+    font-size: 3vw;
     outline: none;
 }
 
+input::placeholder {
+    font-family: var(--ff-book-disp); /* Use your custom font */
+    font-size: 1.5vw; /* Adjust the size as needed */
+    color: #fff /* Color for the placeholder text */
 
-.contact-flex input::placeholder{
-    font-size: 1vw;
-    color: var(--clr-light);
+}
+
+
+textarea::placeholder {
+    font-family: var(--ff-book-disp); /* Use your custom font */
+    font-size: 1.5vw; /* Adjust the size as needed */
+    color: #fff; /* Color for the placeholder text */
+    opacity: 1; /* Optional: adjust the opacity */
 }
 
 .contact-input-container button{
@@ -981,6 +1052,190 @@ footer a{
 .time h1{
     font-size: 8vw;
 }
+
+@media screen and (max-width: 1024px) {
+
+    .contact-input p{
+        font-size: 3vw;
+    }
+
+    .contact-input h1{
+        font-size: 5vw;
+    }
+
+    .contact-flex{
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contact-img img{
+        display: none;
+    }
+
+    .contact-input{
+        width: 90vw;
+    }
+
+    .contact-input p{
+        text-align: center;
+        margin: 3vw auto;
+    }
+
+    
+    input::placeholder, textarea::placeholder {
+        font-size: 2vw; /* Adjust the size for smaller screens */
+    }
+
+    .contact-input-container button{
+        font-size: 2vw;
+    }
+
+}
+
+
+.contact-input-two input::placeholder {
+    font-size: 2px; /* Adjust the size as needed */
+    color: red ; /* Optional: change the placeholder text color */
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .contact-input-two{
+        width: 100%;
+        flex-direction: column;
+
+    }
+
+    .contact-input-two input{
+        width: 100%;
+        flex-direction: column;
+        margin-top: 1%;
+        padding: 5vw;
+    }
+
+    input::placeholder, textarea::placeholder {
+        font-size: 3vw;
+    }
+
+    .contact-flex{
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contact-img img{
+        display: none;
+    }
+
+    .contact-input{
+        width: 90vw;
+    }
+
+    .contact-input p{
+        text-align: center;
+        margin: 3vw auto;
+    }
+
+    .contact-input-container button{
+        font-size: 2vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.work-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.work-flex .card {
+    flex: 1;
+    flex: 48.9%; 
+    max-width: 49.8%; 
+    height: 40vw;
+}
+
+.zoom{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Transition for zoom effect */
+}
+
+.work-flex .card:hover .zoom {
+    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+}
+
+.zoom img:hover{
+
+    transform: scale(1.5);
+}
+
+.works{
+    background-color: transparent;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .work-flex .card-content p{
+        font-size: 1.5vw;
+        padding: 0.3vw 1.2vw;
+        border-radius: 50px;
+    }
+
+    .work-flex .card-content h1{
+        font-size: 2.5vw;
+    }
+
+    .work-flex .card-content {
+        padding: 1vw;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .work-flex .card {
+        flex: 100%; 
+        max-width: 100%; 
+        height: 100vw;
+    }
+
+    .work-flex .card:nth-child(n + 3) {
+        flex: 100%; 
+        max-width: 100%; 
+        height: 100vw;
+    }
+
+    .work-flex .card-content p{
+        font-size: 2.3vw;
+        padding: 0.5vw 1.7vw;
+        border-radius: 50px;
+    }
+
+    .work-flex .card-content h1{
+        font-size: 3.7vw;
+    }
+
+    .work-flex .card-content {
+        padding: 2vw;
+    }
+
+}
+    
+
+
+
+
 
 
 
