@@ -7,22 +7,22 @@ const darkImg = document.getElementsByClassName('link-icon');
 const enableDarkMode = () => { 
   document.body.classList.add('darkmode'); // pridavani classy do body
   localStorage.setItem('darkMode', 'enabled'); // ukladani promene do local storage
-  modeIcon.src = "Icons/night-mode.png";
-  jpLogo.src = "Icons/jp-logo-black.png";
+  modeIcon.src = "Assets/Icons/Dark-mode/moon.png";
+  jpLogo.src = "Assets/Icons/Logo/jp-logo-black.png";
 
   for (let i = 0; i< darkImg.length; i++) { // menim ikonu tim ze projedu to pole a zmenim kazdy img v poli
-    darkImg[i].src = ('Icons/link-black.png');
+    darkImg[i].src = ('Assets/Icons/Link/link-black.png');
   }
 };
 
 const disableDarkMode = () => {
   document.body.classList.remove('darkmode');
   localStorage.setItem('darkMode', null);
-  modeIcon.src = "Icons/sun.png";
-  jpLogo.src = "Icons/jp-logo-white.png";
+  modeIcon.src = "Assets/Icons/Dark-mode/sun.png";
+  jpLogo.src = "Assets/Icons/Logo/jp-logo-white.png";
 
   for (let i = 0; i< darkImg.length; i++) { 
-    darkImg[i].src = ('Icons/link-white.png');
+    darkImg[i].src = ('Assets/Icons/Link/link-white.png');
   }
 };
 
