@@ -68,11 +68,11 @@
 
 html{
     scroll-behavior: smooth;
-    overflow-x: hidden
 }
 
 body{
     background-color: var(--clr-dark);
+     
 }
 
 
@@ -492,10 +492,6 @@ li a{
 }
 
 @media screen and (max-width: 1024px) {
-
-    .introduction p{
-        font-size: 1.5vw;
-    }
 
     .introduction-img-flex p{
         display: none;
@@ -947,271 +943,203 @@ footer a{
 
 
 
-.contact-container{
-    color: var(--clr-light);
-    font-family: var(--ff-book-disp);
-    width: 90vw;
+
+
+
+.contact-flex{
     display: flex;
-    margin: auto;
     justify-content: space-evenly;
+    align-items: center;
+    width: 99vw;
 }
 
-.contact-left{
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.contact-text h1{
-    font-size: 6vw;
-}
-
-.contact-text p{
-    font-size: 1.5vw;
-    width: 70%;
+.contact-img img{
+    width: 40vw;
+    height: auto;
+    background-size: cover;
 }
 
 .contact-input{
+    color: var(--clr-light);
+    font-family: var(--ff-roman-head);
+}
+
+.contact-input h1{
+    font-size: 4vw;
+    margin: 3vw 0;
+}
+
+
+.contact-input p{
+    font-size: 2vw;
+    width: 50vw;
+    margin: 2vw 0;
+}
+
+.message{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5vw;
-}
-
-
-.contact-input input{
-    background-color: var(--clr-primary); 
-    color: var(--clr-light);
-    font-size: 20px;
-    padding: 15px;
-    border-radius: 10px;
+    background-color: var(--clr-accent);
+    margin-top: 0.4%;
+    padding: 2vw;
+    padding-bottom: 30%;
     border: none;
-}
-
-.contact-input-full input{
-    width: 70%;
-    padding: 15px;
-    padding-bottom: 20vh;
-}
-
-.contact-input input{
-    background-color: var(--clr-primary); 
+    border-radius: 1vw;
+    background-color: var(--clr-accent);
     color: var(--clr-light);
-    
+    font-family: var(--ff-book-disp);
+    font-size: 1vw;
+    outline: none;
+
 }
 
-.contact-input-half{
+.contact-input-two{
     display: flex;
-    gap: 0.5vw;
+    justify-content: space-between;
+    color: var(--clr-light);
 }
 
-.contact-input-half input{
-    width: calc(35% - 0.25vw);
-}
-
-
-.contact-right video{
-    height: 80vh;
-    width: 30vw;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.contact-input-button{
-    width: 70%;
-    background-color: var(--clr-light); 
-    color: var(--clr-dark);
-    font-size: 20px;
-    padding: 15px;
-    border-radius: 10px;
+.contact-input-two input{
+    width: 49.8%;
+    padding: 2vw;
     border: none;
-    text-align: center;
-    font-size: 20px;
+    border-radius: 1vw;
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    font-family: var(--ff-book-disp);
+    font-size: 3vw;
+    outline: none;
+}
+
+input::placeholder {
+    font-family: var(--ff-book-disp); /* Use your custom font */
+    font-size: 1.5vw; /* Adjust the size as needed */
+    color: #fff /* Color for the placeholder text */
+
+}
+
+
+textarea::placeholder {
+    font-family: var(--ff-book-disp); /* Use your custom font */
+    font-size: 1.5vw; /* Adjust the size as needed */
+    color: #fff; /* Color for the placeholder text */
+    opacity: 1; /* Optional: adjust the opacity */
+}
+
+.contact-input-container button{
+    width: 100%;
+    background-color: var(--clr-light);
     cursor: pointer;
-    font-family: var(--ff-bold-head);
+    margin-top: 0.4%;
+    padding: 1.7vw;
+    border: none;
+    border-radius: 1vw;
+    color: var(--clr-dark);
+    font-family: var(--ff-medium-disp);
+    font-size: 1.2vw;
 }
 
-.time-container{
+.time{
     font-family: var(--ff-roman-head);
     color: var(--clr-light);
     text-align: center;
     margin: 7vw 0;
 }
 
-.time-container h1{
+.time p{
     font-size: 1vw;
 }
 
-.time-container #time{
-    font-size: 10vw;
-    letter-spacing: 15px;
-    font-family: var(--ff-heavy-body);
+.time h1{
+    font-size: 8vw;
 }
 
-.time-container span{
-    display: block;
-}
+@media screen and (max-width: 1024px) {
 
+    .contact-input p{
+        font-size: 3vw;
+    }
 
+    .contact-input h1{
+        font-size: 5vw;
+    }
 
+    .contact-flex{
+        justify-content: center;
+        text-align: center;
+    }
 
-@media screen and (max-width: 1024px){
-    
-    .contact-right{
+    .contact-img img{
         display: none;
     }
 
-    .contact-left{
-        justify-content: center;
-        height: auto;
-        margin: 5vw 0;
+    .contact-input{
+        width: 90vw;
     }
 
-    .contact-text h1{
-        font-size: 10vw;
-    }
-
-    .contact-text p{
-        font-size: 3vw;
-        margin: 1vw 0;
-    }
-
-    .contact-text{
-        margin: 3vw 0;
-    }
-
-    .contact-input input{
-        font-size: 3vw;
-    }
-
-    .contact-input-half{
-        height: 8vw;
-    }
-
-    .contact-input-half input{
-        width: calc(50% - 0.25vw);
-    }
-
-    .contact-input-full input{
-        width: 100%;
-        padding-bottom: 30vh;
-    }
-
-    .contact-input-button{
-        width: 100%;
-    }
-
-    .contact-input-button p{
-        font-size: 3vw;
-    }
-
-    .time-container{
+    .contact-input p{
         text-align: center;
-        margin: 10vw 0;
+        margin: 3vw auto;
     }
+
     
-    .time-container h1{
+    input::placeholder, textarea::placeholder {
+        font-size: 2vw; /* Adjust the size for smaller screens */
+    }
+
+    .contact-input-container button{
         font-size: 2vw;
     }
-    
-    .time-container #time{
-        font-size: 15vw;
-        letter-spacing: 10px;
-    }
-    
 
 }
 
-@media screen and (max-width: 800px){
 
-    .contact-left{
-        text-align: center;
-    }
+.contact-input-two input::placeholder {
+    font-size: 2px; /* Adjust the size as needed */
+    color: red ; /* Optional: change the placeholder text color */
+}
 
-    .contact-text h1{
-        font-size: 15vw;
-    }
 
-    .contact-text p{
+@media screen and (max-width: 800px) {
+
+    .contact-input-two{
         width: 100%;
-        font-size: 6vw;
-    }
-
-    .contact-input input{
-        font-size: 4vw;
-    }
-
-    .contact-input-half{
         flex-direction: column;
-        height: auto;
+
     }
 
-    .contact-input-half input{
+    .contact-input-two input{
         width: 100%;
+        flex-direction: column;
+        margin-top: 1%;
+        padding: 5vw;
     }
 
-    .contact-input-full input{
-        width: 100%;
-        padding-bottom: 30vh;
-    }
-
-    .contact-input-button{
-        width: 100%;
-    }
-
-    .contact-input-button p{
+    input::placeholder, textarea::placeholder {
         font-size: 3vw;
     }
 
-    .time-container{
+    .contact-flex{
+        justify-content: center;
         text-align: center;
-        margin: 10vw 0;
     }
-    
-    .time-container h1{
-        font-size: 3vw;
-    }
-    
-    .time-container #time{
-        font-size: 15vw;
-        letter-spacing: 10px;
-    }
-    
 
+    .contact-img img{
+        display: none;
+    }
+
+    .contact-input{
+        width: 90vw;
+    }
+
+    .contact-input p{
+        text-align: center;
+        margin: 3vw auto;
+    }
+
+    .contact-input-container button{
+        font-size: 2vw;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1305,182 +1233,6 @@ footer a{
 }
     
 
-
-
-
-
-
-
-
-
-
-
-
-.project-container {
-    width: 100%; /* Změněno z 100vw na 100% */
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.project-text-container {
-    width: 50%;
-    font-family: var(--ff-book-disp);
-    color: var(--clr-light);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Přidána tato řádka */
-    height: 80vh; /* Přidána tato řádka pro roztáhnutí kontejneru */
-}
-
-.project-heading-container h1{
-    font-family: var(--ff-heavy-body);
-    font-size: 3vw;
-}
-
-.project-heading-container h1 span{
-    display: block;
-}
-
-.project-heading-container p{
-    font-family: var(--ff-heavy-body);
-    color: var(--clr-accent2);
-    font-size: 2vw;
-}
-
-.project-button-container{
-    display: flex;
-    width: 25%;
-    gap: 4%;
-    margin: 1vw 0;
-}
-
-.project-button-container a{
-    text-decoration: none;
-}
-
-.project-button{
-    background-color: var(--clr-button);
-    border-radius: 40px;
-    transition: background-color 0.5s ease;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.project-button:hover{
-    background-color: var(--clr-button-hover);
-    color: var(--clr-dark);
-    transition: background-color 0.5s ease;
-}
-
-.project-button p{
-    text-decoration: none;
-    color: var(--clr-dark);
-    font-family: var(--ff-book-disp);
-    font-size: 1vw;
-    padding: 0.3vw 1vw;
-    text-wrap: nowrap;
-    text-align: center;
-    background-color: transparent;
-    margin: auto;
-    transition: color 0.5s ease;
-}
-
-.project-button:hover p{
-    color: #fff;
-    transition: color 0.5s ease;
-}
-
-.project-header{
-    display: none;
-}
-
-.project-about-container p{
-    width: 70%;
-    margin-top: 5px;
-    font-family: var(--ff-book-disp);
-    font-size: 0.9vw;
-}
-
-.project-about-container h1{
-    font-family: var(--ff-heavy-body);
-    font-size: 2vw;
-}
-
-.project-photo-container{ 
-    width: 80vh;
-}
-
-.project-photo-container img{ 
-    width: 100%;
-    height: 80vh;
-    border-radius: 35px;
-}
-
-.project-photo-container-phone{
-    display: none;
-}
-
-@media  screen and (max-width: 1024px){
-    
-    .project-container{
-        display: block;
-        height: auto;
-    }
-
-    .project-text-container{
-        width: 100%;
-        align-items: center;
-    }
-
-    .project-heading-container h1{
-        font-size: 6vw;
-    }
-
-    .project-heading-container p{
-        font-size: 4vw;
-    }
-
-    .project-button p{
-        font-size: 2vw;
-    }
-
-    .project-button-container{
-        width: 100%;
-        justify-content: center;
-        font-size: 3vw;
-    }
-
-    .project-about-container p{
-        text-align: center;
-    }
-
-    .project-photo-container-phone{
-        display: block;
-    }
-
-    .project-photo-container-desktop {
-        display: none;
-    }
-
-    .project-about-container{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 2vw;
-    }
-
-    .project-about-container h1{
-        font-size: 5vw;
-        margin-top: 1vw;
-    }
-
-    .project-about-container p{
-        width: 70%;
-        margin: auto;
-        margin-top: 1vw;
-        font-size: 2.5vw;
-    }
-}
 
 
 
