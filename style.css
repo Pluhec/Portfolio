@@ -124,6 +124,11 @@ header{
     
     header {
         margin: 20px 0;
+        padding: 0 1.5vw;
+    }
+
+    #menu-header a{
+        font-size: 3vw;
     }
 
     #jp-logo{
@@ -151,6 +156,10 @@ header{
 
     header p{
         font-size: 2vw;
+    }
+
+    #menu-header a{
+        font-size: 3vw;
     }
 }
 
