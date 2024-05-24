@@ -291,8 +291,10 @@ li a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff; /* Adjust text color as needed */
-    z-index: 1; /* Ensure the <p> element appears on top */
+    width: 100vw;
+    background-color: transparent;
+    color: #fff; 
+    z-index: 1;
     display: flex;
     font-size: 1vw;
     opacity: 0;
@@ -302,11 +304,6 @@ li a{
 
 .moving-text a {
     padding: 2vw;
-}
-
-.moving-text{
-    width: 100vw;
-    background-color: transparent;
 }
 
 @keyframes moveText {
@@ -357,10 +354,6 @@ li a{
 
 
 
-.button{
-    font-family: "sequelHeavyBody";
-    text-decoration: none;
-}
 
 #close-btn{
     float: right;
@@ -447,14 +440,11 @@ li a{
     margin: 8vw 0;
 }
 
-.services-content{
-    justify-content: center;
-}
 
 .services-content p{
     justify-content: center;
     margin: auto 0;
-    font-size: 10vw;
+    font-size: 5vw;
 }
 
 
@@ -466,15 +456,12 @@ li a{
 }
 
 .services-content{
+    justify-content: center;
    color: var(--clr-light);
    font-family: var(--ff-bold-head);
    display: flex;
    gap: 1vw;
    line-height: 5vw;
-}
-
-.services-content p{
-    font-size: 5vw;
 }
 
 .services-content img{
@@ -853,6 +840,8 @@ li a{
 }
 
 .button{
+    font-family: "sequelHeavyBody";
+    text-decoration: none;
     background-color: var(--clr-button);
     width: 9vw;
     height: 3.5vw;
