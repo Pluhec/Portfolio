@@ -1,2 +1,3 @@
 <p>Hello</p>
-<p>Hosted <a target="_blank" href="https://pluhec.github.io/Menu/">here</a> on Github</p>
+<p>Hosted <a href="https://pluhec.github.io/Menu/" target="_blank">here</a> on Github</p>
+
