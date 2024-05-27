@@ -414,6 +414,10 @@ footer a{
     margin: 2vw 2vw 6vw 2vw;
 }
 
+.cz-name{
+    line-height: 9vw;
+}
+
 .introduction-img-flex{
     display: flex;
     align-items: center;
@@ -466,6 +470,10 @@ footer a{
 @media screen and (max-width: 800px) {
     #introduction-description{
         font-size: 3.5vw;
+    }
+
+    .introduction p{
+        font-size: 2vw;
     }
 }
 
@@ -1292,6 +1300,12 @@ footer a{
 
     .project-photo-container-phone{
         display: block;
+        width: 100vw;
+    }
+
+    .project-photo-container-phone img{
+        width: 100vw;
+        height: 100vw;
     }
 
     .project-photo-container-desktop {
@@ -1301,7 +1315,7 @@ footer a{
     .project-about-container{
         width: 100%;
         text-align: center;
-        margin-bottom: 2vw;
+        margin-bottom: 5vw;
     }
 
     .project-about-container h1{
