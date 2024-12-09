@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="node_modules/all-animaton/dist/all-animation.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" sizes="32x32" href="Assets/Icons/Logo/jp-logo-favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
 </head>
@@ -162,18 +163,18 @@
                         <h1>Kontakt</h1>
                         <p>Momentálně jsem otevřený novým projektům, spolupracím nebo zakázkám. Můžete mě kontaktovat níže, odpovím co nejdříve to půjde.</p>
                     </div>
-                    <div class="contact-input">
+                    <form action="https://formsubmit.co/b9f41be9df813e4a20f29319a61b5b96" method="post" class="contact-input">
                         <div class="contact-input-half">
-                            <input type="text" placeholder="JMÉNO">
-                            <input type="text" placeholder="EMAIL">
+                            <input type="text" name="name" placeholder="JMÉNO" required>
+                            <input type="email" name="email" placeholder="EMAIL" required>
                         </div>
                         <div class="contact-input-full">
-                            <input type="text" placeholder="ZPRÁVA">
+                            <textarea type="text" name="message"  placeholder="ZPRÁVA" required></textarea>
                         </div>
                         <div class="contact-input-button">
-                            <p>Odeslat</p>
+                            <button type="submit">ODESLAT</button>
                         </div>
-                    </div>
+                    </form>
                     
                 </div>
                 <div class="contact-right">
@@ -182,7 +183,7 @@
            </div>
            <div class="time-container">
                 <h1><span>LOKÁLNÍ ČAS</span><span> [ ZLÍN, CZ ]</span></h1>
-            <div id="time"></div>
+            <div id="time">Načítání...</div>
            </div>
            
             

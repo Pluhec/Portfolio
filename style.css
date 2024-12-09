@@ -834,6 +834,10 @@ footer a{
     font-size: 8vw;
 }
 
+.contact a{
+    transition: background-color 0.5s ease;
+}
+
 .contact p{
     font-size: 4vw;
 }
