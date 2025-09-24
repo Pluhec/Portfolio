@@ -154,8 +154,14 @@ Each project in `projectsData.js` should follow this structure:
 
 ## Deployment
 
-The site is configured for GitHub Pages deployment:
+The site is configured for automatic GitHub Pages deployment:
 
+### Automatic Deployment (Recommended)
+- Push changes to `main` or `master` branch
+- GitHub Actions automatically builds and deploys
+- Site will be available at `pluhacekjakub.cz`
+
+### Manual Deployment
 1. Build the project:
 ```bash
 npm run build
@@ -165,6 +171,12 @@ npm run build
 ```bash
 npm run deploy
 ```
+
+### Configuration
+- **Custom Domain**: `pluhacekjakub.cz` (configured via CNAME)
+- **Cloudflare Tunnel**: Configured for custom domain routing
+- **Build Output**: `dist/` folder
+- **GitHub Actions**: Automatic deployment on push to main/master
 
 ## Contributing
 
