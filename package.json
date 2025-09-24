@@ -1,0 +1,30 @@
+{
+  "name": "pluhacek-react-vite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "animate.css": "^4.1.1",
+    "framer-motion": "^10.12.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.0",
+    "three": "^0.159.0",
+    "@react-three/fiber": "^8.13.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "jsdom": "^25.0.0",
+    "vite": "^4.4.0",
+    "vitest": "^2.0.0"
+  }
+}
