@@ -9,6 +9,7 @@ import ProjectPage from './pages/ProjectPage'
 import { DarkModeProvider } from './state/DarkModeContext'
 import { NavigationProvider, useNavigation } from './state/NavigationContext'
 import { HeaderProvider } from './state/HeaderContext'
+import { LanguageProvider } from './state/LanguageContext'
 import Nav from './components/Nav'
 import Header from './components/Header'
 
@@ -36,13 +37,15 @@ export default function App(){
   useEffect(()=>{ AOS.init({ once: true, duration: 800 }) },[])
   return (
     <DarkModeProvider>
-      <NavigationProvider>
-        <HeaderProvider>
-          <BrowserRouter>
-            <AppContent />
-          </BrowserRouter>
-        </HeaderProvider>
-      </NavigationProvider>
+      <LanguageProvider>
+        <NavigationProvider>
+          <HeaderProvider>
+            <BrowserRouter>
+              <AppContent />
+            </BrowserRouter>
+          </HeaderProvider>
+        </NavigationProvider>
+      </LanguageProvider>
     </DarkModeProvider>
   )
 }

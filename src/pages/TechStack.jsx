@@ -1,4 +1,6 @@
 import ShaderCard from '../three/ShaderCard'
+import { useLanguage } from '../state/LanguageContext'
+import { translations } from '../data/translations'
 
 // Reusable TechCard component
 const TechCard = ({ href, category, icon, title, isFirst = false }) => (
@@ -17,53 +19,63 @@ const TechCard = ({ href, category, icon, title, isFirst = false }) => (
 )
 
 export default function TechStack(){
+  const { language } = useLanguage()
+  
+  const t = (key) => {
+    const keys = key.split('.')
+    let value = translations[language]
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
   const techStack = [
     {
       href: "https://www.apple.com",
-      category: "HARDWARE", 
+      category: t('techStack.categories.hardware'), 
       icon: "/Assets/Icons/Tech-stack/apple-logo-white.png",
       title: "Apple",
       isFirst: true
     },
     {
       href: "https://webflow.com",
-      category: "WEBSITE BUILDER",
+      category: t('techStack.categories.websiteBuilder'),
       icon: "/Assets/Icons/Tech-stack/webflow-logo-white.png", 
       title: "Webflow"
     },
     {
       href: "https://www.icloud.com",
-      category: "FILE STORAGE",
+      category: t('techStack.categories.fileStorage'),
       icon: "/Assets/Icons/Tech-stack/icloud-logo-white.png",
       title: "Icloud"
     },
     {
       href: "https://www.figma.com", 
-      category: "UI DESIGN",
+      category: t('techStack.categories.uiDesign'),
       icon: "/Assets/Icons/Tech-stack/figma-icon-white.png",
       title: "Figma"
     },
     {
       href: "https://slack.com",
-      category: "COMUNICATION", 
+      category: t('techStack.categories.communication'), 
       icon: "/Assets/Icons/Tech-stack/slack-icon-white.png",
       title: "Slack"
     },
     {
       href: "https://www.notion.so",
-      category: "DOCUMENTS",
+      category: t('techStack.categories.documents'),
       icon: "/Assets/Icons/Tech-stack/notion-icon-white.png", 
       title: "Notion" 
     },
     {
       href: "https://code.visualstudio.com",
-      category: "EDITOR",
+      category: t('techStack.categories.editor'),
       icon: "/Assets/Icons/Tech-stack/vsCode-icon-white.png",
       title: "VS Code"
     },
     {
       href: "https://www.apple.com/apple-music/",
-      category: "MUSIC", 
+      category: t('techStack.categories.music'), 
       icon: "/Assets/Icons/Tech-stack/appleMusic-icon-white.png",
       title: "Apple Music"
     }
@@ -72,8 +84,10 @@ export default function TechStack(){
   return (
     <main>
       <div className="introduction">
-        <p className="animate__animated animate__fadeInDown">TOOLS I USE EVERYDAY</p>
-        <h1 id="main-heading-animation" className="name animate__animated animate__fadeInDown">TECH <br/> STACK</h1>
+        <p className="animate__animated animate__fadeInDown">{t('techStack.subtitle')}</p>
+        <h1 id="main-heading-animation" className={`name ${language === 'cz' ? 'cz-name' : ''} animate__animated animate__fadeInDown`}>
+          {t('techStack.title.0')}<br/>{t('techStack.title.1')}
+        </h1>
       </div>
       <div className="main-content">
         <div className="tech-stack-flex">
@@ -84,7 +98,7 @@ export default function TechStack(){
       </div>
 
       <footer data-aos="fade-up" data-aos-once="true">
-        <p className="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
+        <p className="built">{t('common.footer')}</p>
         <div className="footer-soc-links">
           <a target="_blank" rel="noreferrer" href="https://github.com/Pluhec">
             <div className="footer-soc-links-flex underline">
@@ -111,7 +125,7 @@ export default function TechStack(){
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{ cursor: 'pointer' }}
           >
-            BACK TO TOP
+{t('common.backToTop')}
           </p>
         </div>
       </footer>

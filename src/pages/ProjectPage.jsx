@@ -2,11 +2,23 @@ import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getProjectData } from '../data/projectsData'
 import { useHeader } from '../state/HeaderContext'
+import { useLanguage } from '../state/LanguageContext'
+import { translations } from '../data/translations'
 
 export default function ProjectPage() {
   const { projectSlug } = useParams()
-  const project = getProjectData(projectSlug)
+  const { language } = useLanguage()
+  const project = getProjectData(projectSlug, language)
   const { enableSimpleHeader, enableFullHeader } = useHeader()
+  
+  const t = (key) => {
+    const keys = key.split('.')
+    let value = translations[language]
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
 
   // Aktivujeme simple header při načtení stránky
   useEffect(() => {
@@ -24,9 +36,9 @@ export default function ProjectPage() {
       <main>
         <div className="project-container">
           <div className="project-text-container">
-            <h1>Project not found</h1>
+            <h1>{t('project.notFound')}</h1>
             <Link to="/" className="project-button">
-              <p>Back to Home</p>
+              <p>{t('project.backToHome')}</p>
             </Link>
           </div>
         </div>
@@ -66,7 +78,7 @@ export default function ProjectPage() {
             />
           </div>
           <div className="project-about-container">
-            <h1 className="animate__animated animate__fadeIn">ABOUT</h1>
+            <h1 className="animate__animated animate__fadeIn">{t('project.about')}</h1>
             <p className="animate__animated animate__fadeIn">{project.description}</p>
           </div>
         </div>

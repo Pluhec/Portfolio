@@ -1,60 +1,49 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../state/LanguageContext'
+import { translations } from '../data/translations'
+import { getAllProjects } from '../data/projectsData'
 
 export default function Home(){
+  const { language } = useLanguage()
+  
+  const t = (key) => {
+    const keys = key.split('.')
+    let value = translations[language]
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
+  
+  const projects = getAllProjects(language)
   return (
     <main>
       <div className="main-content">
         <div className="introduction">
-          <h1 id="main-heading-animation" className="name name animate__animated animate__fadeInDown">SOFTWARE <br/> DEVELOPER</h1>
+          <h1 id="main-heading-animation" className={`name ${language === 'cz' ? 'cz-name' : ''} animate__animated animate__fadeInDown`}>
+            {t('home.title.0')}<br/>{t('home.title.1')}
+          </h1>
+          <p className="subtitle animate__animated animate__fadeInUp">
+            {t('home.subtitle')}
+          </p>
         </div>
         <div className="work-flex">
-          <Link to="/project/password" className="card" data-aos="zoom-in">
-            <img className="zoom" src="/Assets/Photos/Work/password-bck.webp" alt="Password Generator"/>
-            <div className="card-content works">
-              <div>
-                <p>FOR FUN</p>
+          {projects.map(project => (
+            <Link key={project.slug} to={`/project/${project.slug}`} className="card" data-aos="zoom-in">
+              <img className="zoom" src={project.image} alt={project.title.join(' ')}/>
+              <div className="card-content works">
+                <div>
+                  <p>{project.category}</p>
+                </div>
+                <img className="card-icon" src={project.icon} alt=""/>
+                <h1 className="card-h1">{project.title.join(' ')}</h1>
               </div>
-              <img className="card-icon" src="/Assets/Icons/Work/password-generator.png" alt=""/>
-              <h1 className="card-h1">Password generator</h1>
-            </div>
-          </Link>
-
-          <Link to="/project/tcz" className="card" data-aos="zoom-in">
-            <img className="zoom" src="/Assets/Photos/Work/TGZ-bck.webp" alt="Tiger Club Zlín"/>
-            <div className="card-content works">
-              <div>
-                <p>COMMISSION</p>
-              </div>
-              <img className="card-icon" src="/Assets/Icons/Work/TGZ.png" alt=""/>
-              <h1 className="card-h1">Tiger Club Zlín</h1>
-            </div>
-          </Link>
-
-          <Link to="/project/dark-mode" className="card" data-aos="zoom-in">
-            <img className="zoom" src="/Assets/Photos/Work/dark-bck.webp" alt="Dark Mode"/>
-            <div className="card-content works">
-              <div>
-                <p>FOR FUN</p>
-              </div>
-              <img className="card-icon" src="/Assets/Icons/Work/dark-mode.png" alt=""/>
-              <h1 className="card-h1">Dark mode</h1>
-            </div>
-          </Link>
-
-          <Link to="/project/autofine" className="card" data-aos="zoom-in">
-            <img className="zoom" src="/Assets/Photos/Work/autofine.webp" alt="Autofine"/>
-            <div className="card-content works">
-              <div>
-                <p>SCHOOL / COMMISSION</p>
-              </div>
-              <img className="card-icon" src="/Assets/Icons/Work/autofine.png" alt=""/>
-              <h1 className="card-h1">Autofine</h1>
-            </div>
-          </Link>
+            </Link>
+          ))}
         </div>
       </div>
       <footer data-aos="fade-up" data-aos-once="true">
-        <p className="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
+        <p className="built">{t('common.footer')}</p>
         <div className="footer-soc-links">
           <a target="_blank" rel="noreferrer" href="https://github.com/Pluhec">
             <div className="footer-soc-links-flex underline">
@@ -81,7 +70,7 @@ export default function Home(){
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{ cursor: 'pointer' }}
           >
-            BACK TO TOP
+{t('common.backToTop')}
           </p>
         </div>
       </footer>

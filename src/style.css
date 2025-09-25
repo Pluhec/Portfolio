@@ -101,6 +101,11 @@ header{
     color: var(--clr-light);
     font-family: var(--ff-heavy-body);
     text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
 }
 
 #menu-header{
@@ -148,6 +153,10 @@ header{
     .nav-bar-boxes img{
         width: 5vw;
     }
+
+    .cz-en-button{
+        font-size: 3.7vw;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -160,6 +169,10 @@ header{
     }
 
     #menu-header a{
+        font-size: 3vw;
+    }
+
+    .cz-en-button{
         font-size: 3vw;
     }
 }
@@ -440,6 +453,14 @@ footer a{
     color: var(--clr-accent2);
     font-family: var(--ff-roman-head);
     font-size: 0.8vw;
+}
+
+.introduction-img-flex p{
+    max-width: 20vw;
+    text-align: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 0 1vw;
 }
 
 #introduction-description-flex{

@@ -1,8 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useHeader } from '../state/HeaderContext'
+import { useLanguage } from '../state/LanguageContext'
+import { translations } from '../data/translations'
 
 export default function Contact(){
+  const { language } = useLanguage()
+  
+  const t = (key) => {
+    const keys = key.split('.')
+    let value = translations[language]
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
   const [time, setTime] = useState('Loading...')
   const [searchParams] = useSearchParams()
   const { enableFullHeader, enableSimpleHeader } = useHeader()
@@ -43,25 +55,25 @@ export default function Contact(){
       <div className="contact-container">
         <div className="contact-left">
           <div className="contact-text">
-            <h1>Contact</h1>
-            <p>Right now im open to new projects, cooperations or contracts. You can contact me down there, I'll respond as soon as possible. </p>
+            <h1>{t('contact.title')}</h1>
+            <p>{t('contact.description')}</p>
           </div>
           <form action="https://formsubmit.co/b9f41be9df813e4a20f29319a61b5b96" method="post" className="contact-input">
             <div className="contact-input-half">
-              <input type="text" name="name" placeholder="NAME" required/>
-              <input type="email" name="email" placeholder="EMAIL" required/>
+              <input type="text" name="name" placeholder={t('contact.form.name')} required/>
+              <input type="email" name="email" placeholder={t('contact.form.email')} required/>
             </div>
             <div className="contact-input-full">
               <textarea 
                 type="text" 
                 name="message" 
-                placeholder="MESSAGE" 
+                placeholder={t('contact.form.message')}
                 required
                 style={{ resize: 'none' }}
               ></textarea>
             </div>
             <div className="contact-input-button">
-              <button type="submit">Send</button>
+              <button type="submit">{t('contact.form.send')}</button>
             </div>
           </form>
         </div>
@@ -70,12 +82,12 @@ export default function Contact(){
         </div>
       </div>
       <div className="time-container">
-        <h1><span>LOCAL TIME</span><span> [ ZLIN, CZ ]</span></h1>
+        <h1><span>{t('contact.localTime')}</span><span> [ ZLIN, CZ ]</span></h1>
         <div id="time">{time}</div>
       </div>
 
       <footer data-aos="fade-up" data-aos-once="true">
-        <p className="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
+        <p className="built">{t('common.footer')}</p>
         <div className="footer-soc-links">
           <a target="_blank" rel="noreferrer" href="https://github.com/Pluhec">
             <div className="footer-soc-links-flex underline">
@@ -102,7 +114,7 @@ export default function Contact(){
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{ cursor: 'pointer' }}
           >
-            BACK TO TOP
+{t('common.backToTop')}
           </p>
         </div>
       </footer>

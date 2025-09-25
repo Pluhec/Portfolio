@@ -1,36 +1,50 @@
 import { Link } from 'react-router-dom'
 import { useHeader } from '../state/HeaderContext'
+import { useLanguage } from '../state/LanguageContext'
+import { translations } from '../data/translations'
 import OptimizedImage from '../components/OptimizedImage'
 
 export default function About(){
   const { enableSimpleHeader } = useHeader()
+  const { language } = useLanguage()
+  
+  const t = (key) => {
+    const keys = key.split('.')
+    let value = translations[language]
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
   
   const services = [
-    { img: '/Assets/Photos/Service/3d Print.webp', title: '3D PRINT', order: 'first' },
-    { img: '/Assets/Photos/Service/Photography.webp', title: 'PHOTOGRAPHY', order: 'second' },
-    { img: '/Assets/Photos/Service/Web Development.webp', title: 'WEB DEVELOPMENT', order: 'first' },
-    { img: '/Assets/Photos/Service/Hardware.webp', title: 'HARDWARE', order: 'second', className: 'video-hover' }
+    { img: '/Assets/Photos/Service/3d Print.webp', title: t('about.services.print3d'), order: 'first' },
+    { img: '/Assets/Photos/Service/Photography.webp', title: t('about.services.photography'), order: 'second' },
+    { img: '/Assets/Photos/Service/Web Development.webp', title: t('about.services.webDev'), order: 'first' },
+    { img: '/Assets/Photos/Service/Hardware.webp', title: t('about.services.hardware'), order: 'second', className: 'video-hover' }
   ]
 
   const colophonItems = [
-    { href: 'https://unsplash.com', category: 'STOCK', title: 'Images by Unsplash' },
-    { href: 'https://pexels.com', category: 'STOCK', title: 'Videos by Pexels' },  
-    { href: 'https://www.flaticon.com', category: 'ICONS', title: 'Icons by Flaticon' },
-    { href: 'https://twitter.com/designedbypaul', category: 'DESIGN', title: 'Design inspired by Paul' }
+    { href: 'https://unsplash.com', category: t('about.colophon.stockCategory'), title: t('about.colophon.unsplash') },
+    { href: 'https://pexels.com', category: t('about.colophon.stockCategory'), title: t('about.colophon.pexels') },  
+    { href: 'https://www.flaticon.com', category: t('about.colophon.iconsCategory'), title: t('about.colophon.flaticon') },
+    { href: 'https://twitter.com/designedbypaul', category: t('about.colophon.designCategory'), title: t('about.colophon.paul') }
   ]
 
   return (
     <main>
       <div className="introduction">
-        <h1 id="main-heading-animation" className="name animate__animated animate__fadeInDown">JAKUB<br/>PLUHACEK</h1>
+        <h1 id="main-heading-animation" className={`name ${language === 'cz' ? 'cz-name' : ''} animate__animated animate__fadeInDown`}>
+          {t('about.title.0')}<br/>{t('about.title.1')}
+        </h1>
         <div className="introduction-img-flex">
-          <p data-aos="fade-up"> IF AT FIRST YOU DON'T SUCCEED;<br/> CALL IT VERSION 1.0</p>
+          <p data-aos="fade-up">{t('about.quote1')}</p>
           <img className="animate__animated animate__fadeInUp" src="/Assets/Photos/About/me.webp" alt=""/>
-          <p data-aos="fade-up">CODE IS LIKE HUMOR. <br/> YOU HAVE TO EXPLAIN IT, IT'S BAD</p>
+          <p data-aos="fade-up">{t('about.quote2')}</p>
         </div>
         <div id="introduction-description-flex" data-aos="fade-up">
           <p id="introduction-description">
-            My name is Jakub Pluháček. I was born in Zlín and I'm studying game development and multimedia applications at Creative Hill College in Zlín. Currently I'm most interested in web development and home automation. 
+            {t('about.description')}
           </p>
         </div>
       </div>
@@ -55,7 +69,7 @@ export default function About(){
       </div>
       
       <div className="services">
-        <h3 className="heading" data-aos="fade-up">SERVICES</h3>
+        <h3 className="heading" data-aos="fade-up">{t('about.servicesTitle')}</h3>
         <div className="services-content-flex">
           {services.map((service, index) => (
             <div key={index} className="services-content" data-aos="fade-up">
@@ -77,7 +91,7 @@ export default function About(){
       
       <div className="colophon">
         <div className="colophon-flex">
-          <h1 className="left-heading" data-aos="fade-up">Colophon</h1>
+          <h1 className="left-heading" data-aos="fade-up">{t('about.colophon.title')}</h1>
           <div className="colophon-container"> 
             {colophonItems.map((item, index) => (
               <a key={index} target="_blank" rel="noreferrer" href={item.href} className="card" data-aos="zoom-in">
@@ -97,19 +111,19 @@ export default function About(){
       </div>
       
       <div className="contact">
-        <h3 className="heading" data-aos="fade-up">CONTACT</h3>
-        <h1 data-aos="fade-up">HAVE A COOL <br/>PROJECT?</h1>
+        <h3 className="heading" data-aos="fade-up">{t('common.contact')}</h3>
+        <h1 data-aos="fade-up">{t('about.contactTitle')}</h1>
         <Link 
           to="/contact?from=about" 
           className="button" 
           data-aos="zoom-in"
         >
-          <p>Let's Talk</p>
+          <p>{t('about.contactButton')}</p>
         </Link>
       </div>
       
       <footer data-aos="fade-up" data-aos-once="true">
-        <p className="built">BUILT AND DESIGNED BY JAKUB PLUHACEK</p>
+        <p className="built">{t('common.footer')}</p>
         <div className="footer-soc-links">
           <a target="_blank" rel="noreferrer" href="https://github.com/Pluhec">
             <div className="footer-soc-links-flex underline">
@@ -136,7 +150,7 @@ export default function About(){
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             style={{ cursor: 'pointer' }}
           >
-            BACK TO TOP
+{t('common.backToTop')}
           </p>
         </div>
       </footer>
