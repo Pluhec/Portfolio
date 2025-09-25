@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Img from 'react-image'
+import { Img } from 'react-image'
 
 const OptimizedImage = ({ 
   src, 
