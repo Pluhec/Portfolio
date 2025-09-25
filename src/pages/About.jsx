@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useHeader } from '../state/HeaderContext'
+import OptimizedImage from '../components/OptimizedImage'
 
 export default function About(){
   const { enableSimpleHeader } = useHeader()
@@ -35,20 +36,22 @@ export default function About(){
       </div>
       
       <div className="hobby-img" data-aos="fade-up">
-        <marquee behavior="alternate" direction="left">
-          <img src="/Assets/Photos/Hobby/Hardware.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Camera.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Guitar.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Macbook.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/3d Print.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/V8 Engine.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Hardware.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Camera.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Guitar.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/Macbook.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/3d Print.webp" alt=""/>
-          <img src="/Assets/Photos/Hobby/V8 Engine.webp" alt=""/>
-        </marquee>
+        <div className="hobby-scroll-container">
+          <div className="hobby-scroll-content">
+            <OptimizedImage src="/Assets/Photos/Hobby/Hardware.webp" alt="Hardware projects" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Camera.webp" alt="Photography equipment" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Guitar.webp" alt="Guitar playing" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Macbook.webp" alt="MacBook development" />
+            <OptimizedImage src="/Assets/Photos/Hobby/3d Print.webp" alt="3D printing projects" />
+            <OptimizedImage src="/Assets/Photos/Hobby/V8 Engine.webp" alt="V8 engine model" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Hardware.webp" alt="Hardware projects" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Camera.webp" alt="Photography equipment" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Guitar.webp" alt="Guitar playing" />
+            <OptimizedImage src="/Assets/Photos/Hobby/Macbook.webp" alt="MacBook development" />
+            <OptimizedImage src="/Assets/Photos/Hobby/3d Print.webp" alt="3D printing projects" />
+            <OptimizedImage src="/Assets/Photos/Hobby/V8 Engine.webp" alt="V8 engine model" />
+          </div>
+        </div>
       </div>
       
       <div className="services">

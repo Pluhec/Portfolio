@@ -15,8 +15,8 @@ export function DarkModeProvider({ children }){
       return window.matchMedia('(prefers-color-scheme: dark)').matches
     }
     
-    // Fallback na světlý režim
-    return false
+    // Fallback na tmavý režim
+    return true
   })
 
   useEffect(() => {
@@ -82,6 +82,9 @@ export function DarkModeProvider({ children }){
     if (window.matchMedia) {
       const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       setDark(systemPrefersDark)
+    } else {
+      // Fallback na tmavý režim pokud není dostupné matchMedia
+      setDark(true)
     }
   }
 

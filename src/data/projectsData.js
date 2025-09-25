@@ -29,7 +29,7 @@ export const projectsData = {
       {
         type: 'link',
         text: 'View Site', 
-        url: ''
+        url: 'https://www.tigerclubzlin.cz'
       }
     ],
     description: 'I created a website for Tigers Club Zlín, showcasing their kickboxing and self-defense programs. Built using Webflow, the site includes details about training sessions, the coach, and the class schedule. I specialize in custom web design, focusing on functionality and aesthetics to meet clients\' needs.',
