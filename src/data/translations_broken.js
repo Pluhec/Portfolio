@@ -1,7 +1,18 @@
 export const translations = {
   en: {
-    // Navigation
-    nav: {
+    // Navig      form: {
+        name: 'NAME',
+      // Common
+    common: {
+      footer: 'BUILT AND DESIGNED BY JAKUB PLUHACEK',
+      backToTop: 'BACK TO TOP',
+      github: 'Github',
+      slack: 'Slack',
+      discord: 'Discord'
+    }ail: 'EMAIL', 
+        message: 'MESSAGE',
+        send: 'Send'
+      },    nav: {
       work: 'WORK',
       about: 'ABOUT', 
       stack: 'STACK',
@@ -19,8 +30,8 @@ export const translations = {
     // About page  
     about: {
       title: ['JAKUB', 'PLUHACEK'],
-      quote1: 'IF AT FIRST YOU DON\'T SUCCEED;\nCALL IT VERSION 1.0',
-      quote2: 'CODE IS LIKE HUMOR.\nWHEN YOU HAVE TO EXPLAIN IT, IT\'S BAD',
+      quote1: 'IF AT FIRST YOU DON\'T SUCCEED; CALL IT VERSION 1.0',
+      quote2: 'CODE IS LIKE HUMOR. YOU HAVE TO EXPLAIN IT, IT\'S BAD',
       description: 'My name is Jakub Pluháček. I was born in Zlín and I\'m studying game development and multimedia applications at Creative Hill College in Zlín. Currently I\'m most interested in web development and home automation.',
       servicesTitle: 'SERVICES',
       services: {
@@ -52,7 +63,7 @@ export const translations = {
         name: 'NAME',
         email: 'EMAIL', 
         message: 'MESSAGE',
-        send: 'Send'
+        submit: 'SEND'
       },
       localTime: 'LOCAL TIME',
       location: '[ ZLIN, CZ ]',
@@ -68,7 +79,7 @@ export const translations = {
         websiteBuilder: 'WEBSITE BUILDER',
         storage: 'FILE STORAGE',
         uiDesign: 'UI DESIGN',
-        communication: 'COMUNICATION',
+        communication: 'COMMUNICATION',
         documents: 'DOCUMENTS',
         editor: 'EDITOR',
         music: 'MUSIC'
@@ -84,7 +95,7 @@ export const translations = {
 
     // Common
     common: {
-      footer: 'BUILT AND DESIGNED BY JAKUB PLUHACEK',
+      builtBy: 'DESIGNED AND BUILT BY JAKUB PLUHACEK',
       backToTop: 'BACK TO TOP',
       github: 'Github',
       slack: 'Slack',
@@ -112,8 +123,8 @@ export const translations = {
     // About page
     about: {
       title: ['JAKUB', 'PLUHÁČEK'],
-      quote1: 'POKUD SE TI NEDAŘÍ NAPOPRVÉ,\nNAZVI TO VERZI 1.0.',
-      quote2: 'KÓD JE JAKO HUMOR.\nMUSÍŠ HO VYSVĚTLIT, JE-LI ŠPATNÝ.',
+      quote1: 'POKUD SE TI NEDAŘÍ NAPOPRVÉ, NAZVI TO VERZI 1.0.',
+      quote2: 'KÓD JE JAKO HUMOR. MUSÍŠ HO VYSVĚTLIT, JE-LI ŠPATNÝ.',
       description: 'Jmenuji se Jakub Pluháček. Narodil jsem se ve Zlíně a tady momentálně studuji střední odbornou školu Creative Hill College, přesněji studuji obor vývoj počítačových her a multimediálních aplikací. Zatím se nejvíce zajímám o tvoření webových stránek nebo webových aplikací a dále pak o automatizaci domácnosti.',
       servicesTitle: 'SLUŽBY',
       services: {
@@ -200,4 +211,9 @@ export const getTranslation = (language, key) => {
   }
   
   return result || key
+}
+
+// Hook for easy translations
+export const useTranslation = (language) => {
+  return (key) => getTranslation(language, key)
 }

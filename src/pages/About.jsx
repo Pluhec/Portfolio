@@ -20,7 +20,7 @@ export default function About(){
   const services = [
     { img: '/Assets/Photos/Service/3d Print.webp', title: t('about.services.print3d'), order: 'first' },
     { img: '/Assets/Photos/Service/Photography.webp', title: t('about.services.photography'), order: 'second' },
-    { img: '/Assets/Photos/Service/Web Development.webp', title: t('about.services.webDev'), order: 'first' },
+    { img: '/Assets/Photos/Service/Web Development.webp', title: t('about.services.webdev'), order: 'first' },
     { img: '/Assets/Photos/Service/Hardware.webp', title: t('about.services.hardware'), order: 'second', className: 'video-hover' }
   ]
 
@@ -38,9 +38,13 @@ export default function About(){
           {t('about.title.0')}<br/>{t('about.title.1')}
         </h1>
         <div className="introduction-img-flex">
-          <p data-aos="fade-up">{t('about.quote1')}</p>
+          <p data-aos="fade-up">{t('about.quote1').split('\n').map((line, i) => (
+            <span key={i}>{line}{i < t('about.quote1').split('\n').length - 1 && <br/>}</span>
+          ))}</p>
           <img className="animate__animated animate__fadeInUp" src="/Assets/Photos/About/me.webp" alt=""/>
-          <p data-aos="fade-up">{t('about.quote2')}</p>
+          <p data-aos="fade-up">{t('about.quote2').split('\n').map((line, i) => (
+            <span key={i}>{line}{i < t('about.quote2').split('\n').length - 1 && <br/>}</span>
+          ))}</p>
         </div>
         <div id="introduction-description-flex" data-aos="fade-up">
           <p id="introduction-description">
@@ -91,7 +95,7 @@ export default function About(){
       
       <div className="colophon">
         <div className="colophon-flex">
-          <h1 className="left-heading" data-aos="fade-up">{t('about.colophon.title')}</h1>
+          <h1 className="left-heading" data-aos="fade-up">{t('about.colophonTitle')}</h1>
           <div className="colophon-container"> 
             {colophonItems.map((item, index) => (
               <a key={index} target="_blank" rel="noreferrer" href={item.href} className="card" data-aos="zoom-in">
@@ -111,8 +115,8 @@ export default function About(){
       </div>
       
       <div className="contact">
-        <h3 className="heading" data-aos="fade-up">{t('common.contact')}</h3>
-        <h1 data-aos="fade-up">{t('about.contactTitle')}</h1>
+        <h3 className="heading" data-aos="fade-up">{t('about.contactTitle')}</h3>
+        <h1 data-aos="fade-up">{t('about.contactHeadline')}</h1>
         <Link 
           to="/contact?from=about" 
           className="button" 

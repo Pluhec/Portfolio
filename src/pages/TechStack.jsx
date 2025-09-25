@@ -45,7 +45,7 @@ export default function TechStack(){
     },
     {
       href: "https://www.icloud.com",
-      category: t('techStack.categories.fileStorage'),
+      category: t('techStack.categories.storage'),
       icon: "/Assets/Icons/Tech-stack/icloud-logo-white.png",
       title: "Icloud"
     },

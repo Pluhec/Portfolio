@@ -20,12 +20,10 @@ export default function Home(){
     <main>
       <div className="main-content">
         <div className="introduction">
+          <p className="animate__animated animate__fadeInDown">{t('home.subtitle')}</p>
           <h1 id="main-heading-animation" className={`name ${language === 'cz' ? 'cz-name' : ''} animate__animated animate__fadeInDown`}>
             {t('home.title.0')}<br/>{t('home.title.1')}
           </h1>
-          <p className="subtitle animate__animated animate__fadeInUp">
-            {t('home.subtitle')}
-          </p>
         </div>
         <div className="work-flex">
           {projects.map(project => (

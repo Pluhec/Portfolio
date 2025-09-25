@@ -21,7 +21,7 @@ export default function Header(){
       <div className="nav-bar-boxes">
         <Link to="/"><img id="jp-logo" src={dark ? "/Assets/Icons/Logo/jp-logo-black.png" : "/Assets/Icons/Logo/jp-logo-white.png"} alt=""/></Link>
         <button onClick={toggleLanguage} className="cz-en-button">
-          {language === 'en' ? 'CZ' : 'EN'}
+          CZ/EN
         </button>
       </div>
 
