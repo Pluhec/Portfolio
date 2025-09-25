@@ -1,31 +1,31 @@
 @font-face {
     font-family:"sequelHeavyBody";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Heavy\ Body.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Heavy\ Body.ttf);
 }
 
 @font-face {
     font-family:"sequelBookDisp";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Book\ Disp.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Book\ Disp.ttf);
 }
 
 @font-face {
     font-family:"sequelMediumDisp";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Medium\ Disp.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Medium\ Disp.ttf);
 }
 
 @font-face {
     font-family:"sequelRomanHead";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Roman\ Head.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Roman\ Head.ttf);
 }
 
 @font-face {
     font-family:"sequelBoldHead";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Bold\ Head.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Bold\ Head.ttf);
 }
 
 @font-face {
     font-family:"sequelBookBody";
-    src: url(Assets/Fonts/sequel/Sequel\ Sans\ Book\ Body.ttf);
+    src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Book\ Body.ttf);
 }
 
 :root{
