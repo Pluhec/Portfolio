@@ -82,6 +82,13 @@ export const translations = {
       schoolCommission: 'SCHOOL / COMMISSION'
     },
 
+    // Project page
+    project: {
+      about: 'About',
+      notFound: 'Project not found',
+      backToHome: 'Back to Home'
+    },
+
     // Common
     common: {
       footer: 'BUILT AND DESIGNED BY JAKUB PLUHACEK',
@@ -173,6 +180,13 @@ export const translations = {
       forFun: 'JEN TAK',
       commission: 'ZAKÁZKA',
       schoolCommission: 'ŠKOLA / ZAKÁZKA'
+    },
+
+    // Project page
+    project: {
+      about: 'O projektu',
+      notFound: 'Projekt nenalezen',
+      backToHome: 'Zpět na hlavní stránku'
     },
 
     // Common

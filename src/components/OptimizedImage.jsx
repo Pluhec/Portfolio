@@ -1,19 +1,29 @@
-import { useState } from 'react'
-import { Img } from 'react-image'
+import { useState, useEffect } from 'react'
 
 const OptimizedImage = ({ 
   src, 
   alt = "", 
   className = "", 
   loading = "lazy",
-  placeholder = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+",
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const [currentSrc, setCurrentSrc] = useState(src)
+
+  // Určí jestli je src URL adresa nebo lokální cesta
+  const isExternalUrl = (src) => {
+    return src.startsWith('http://') || src.startsWith('https://')
+  }
 
   // Vytvoř různé velikosti obrázku pro responzivnost
   const createResponsiveSources = (originalSrc) => {
+    // Pokud je to externí URL, vrať jen původní src
+    if (isExternalUrl(originalSrc)) {
+      return [originalSrc]
+    }
+    
+    // Pro lokální obrázky vytvoř responzivní varianty
     if (!originalSrc.includes('/Assets/Photos/')) return [originalSrc]
     
     const basePath = originalSrc.replace(/\.[^/.]+$/, '') // odstraň příponu
@@ -26,37 +36,50 @@ const OptimizedImage = ({
     ].filter(Boolean)
   }
 
+  // Sledování změn src prop
+  useEffect(() => {
+    setCurrentSrc(src)
+    setHasError(false)
+    setIsLoaded(false)
+  }, [src])
+
   const handleLoad = () => {
     setIsLoaded(true)
     setHasError(false)
   }
 
   const handleError = () => {
-    setHasError(true)
-    setIsLoaded(false)
+    // Pokud se externí URL nepodařilo načíst a máme fallback možnosti
+    const sources = createResponsiveSources(src)
+    const currentIndex = sources.indexOf(currentSrc)
+    
+    if (currentIndex < sources.length - 1) {
+      // Zkusíme další variantu
+      setCurrentSrc(sources[currentIndex + 1])
+    } else {
+      setHasError(true)
+      setIsLoaded(false)
+    }
+  }
+
+  // Pro externí URL adresy použijeme přímo src, pro lokální můžeme použít optimalizované varianty
+  const getImageSrc = () => {
+    if (isExternalUrl(src)) {
+      return src
+    }
+    return currentSrc
   }
 
   return (
-    <div className={`optimized-image-wrapper ${className}`} {...props}>
-      <Img
-        src={createResponsiveSources(src)}
-        alt={alt}
-        loading={loading}
-        className={`optimized-image ${isLoaded ? 'loaded' : ''} ${hasError ? 'error' : ''}`}
-        onLoad={handleLoad}
-        onError={handleError}
-        loader={
-          <div className="image-placeholder">
-            <img src={placeholder} alt="Loading..." />
-          </div>
-        }
-        unloader={
-          <div className="image-error">
-            <span>❌ Image failed to load</span>
-          </div>
-        }
-      />
-    </div>
+    <img
+      src={getImageSrc()}
+      alt={alt}
+      loading={loading}
+      className={`${className} ${isLoaded ? 'loaded' : ''} ${hasError ? 'error' : ''}`}
+      onLoad={handleLoad}
+      onError={handleError}
+      {...props}
+    />
   )
 }
 

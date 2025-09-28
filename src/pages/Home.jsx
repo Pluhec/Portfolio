@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
 import { getAllProjects } from '../data/projectsData'
+import OptimizedImage from '../components/OptimizedImage'
+import PlanPalLogo from '../components/PlanPalLogo'
 
 export default function Home(){
   const { language } = useLanguage()
@@ -28,12 +30,18 @@ export default function Home(){
         <div className="work-flex">
           {projects.map(project => (
             <Link key={project.slug} to={`/project/${project.slug}`} className="card" data-aos="zoom-in">
-              <img className="zoom" src={project.image} alt={project.title.join(' ')}/>
+              <OptimizedImage className="zoom" src={project.image} alt={project.title.join(' ')}/>
               <div className="card-content works">
                 <div>
                   <p>{project.category}</p>
                 </div>
-                <img className="card-icon" src={project.icon} alt=""/>
+                {project.icon === 'planpal-logo' ? (
+                  <div className="card-icon">
+                    <PlanPalLogo />
+                  </div>
+                ) : (
+                  <OptimizedImage className="card-icon" src={project.icon} alt=""/>
+                )}
                 <h1 className="card-h1">{project.title.join(' ')}</h1>
               </div>
             </Link>

@@ -1,4 +1,97 @@
 export const projectsData = {
+'javaTenis': {
+    en: {
+      title: ['Tenis Score Counter'],
+      subtitle: 'Java',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/objektovy-tenis'
+        }
+      ],
+      description: 'Classroom assignment for Object-Oriented Programming in Java: a simple tennis score counter. Implements 15–30–40, deuce/advantage, and game resolution. Focused on clean OOP and a clear game logic that can be easily extended (sets, tie-break).',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['Tenisové počítadlo'],
+      subtitle: 'Java',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/objektovy-tenis'
+        }
+      ],
+      description: 'Práce z hodiny objektově orientovaného programování v Javě: jednoduchá aplikace pro počítání tenisového skóre. Umí 15–30–40, deuce/výhoda a vyhodnocení gamu. Důraz na čisté OOP a přehlednou herní logiku s možností snadného rozšíření (sety, tie-break).',
+      category: 'ŠKOLA'
+    },
+    image: 'https://images.unsplash.com/photo-1541744573515-478c959628a0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: 'Assets/Icons/Work/counter.png'
+  },
+
+  'planPal': {
+    en: {
+      title: ['PlanPal'],
+      subtitle: 'Planning app',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/PlanPalApp'
+        }
+      ],
+      description: 'PlanPal is a final exam project focused on building a JavaScript application: a web app for planning trips. Frontend in React, backend in Node.js/Express (REST API). Registration and sign-in with hashed passwords (bcrypt) persisted in a database; trip creation and management (CRUD), user list and filtering, and a responsive UI. Through this project I gained hands-on experience with REST API design and versioning, client/server separation, asynchronous requests, input validation, error handling, and authentication.',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['PlanPal'],
+      subtitle: 'Plánovací aplikace',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/PlanPalApp'
+        }
+      ],
+      description: 'PlanPal je klauzurní práce na téma aplikace v JavaScriptu: webová appka pro plánování výletů. Frontend v Reactu, backend v Node.js/Express (REST API). Registrace a přihlášení s hashovanými hesly (bcrypt) a ukládáním do databáze; tvorba a správa výletů (CRUD), seznam a filtrování uživatelů, responzivní UI. Na projektu jsem si osvojil návrh a verzování REST API, oddělení klient/server, asynchronní požadavky, validaci vstupů, obsluhu chyb a autentizaci.',
+      category: 'ŠKOLA'
+    },
+    image: 'https://images.unsplash.com/photo-1692895591954-451050db22fd?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: 'planpal-logo'
+  },
+
+  'droneDatabase': {
+    en: {
+      title: ['DRONE', 'DATABASE'],
+      subtitle: 'Management system',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
+        }
+      ],
+      description: 'My final project for the MySQL class. I built a relational database that simulates a “postal service of the future” where drones deliver packages. The system tracks warehouses, stations, drones, users, deliveries, and operators, and it watches drone availability, delivery times, and battery levels. When a delivery is created, a drone is reserved, completes the drop-off, and returns to charge. The goal is to show how data could coordinate the whole operation clearly and reliably.',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['DATABÁZE', 'DRONŮ'],
+      subtitle: 'Systém správy',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
+        }
+      ],
+      description: 'Moje závěrečná práce do předmětu MySQL. Vytvořil jsem relační databázi, která simuluje „poštu budoucnosti“, kde zásilky doručují drony. Systém eviduje sklady, stanice, drony, uživatele, zásilky i operátory a hlídá dostupnost dronů, termíny doručení a stav baterií. Když někdo objedná doručení, dron je rezervovaný, doručí balíček a vrátí se na nabíjení. Cílem je ukázat, jak by šlo takový provoz řídit daty přehledně a spolehlivě.',
+      category: 'ŠKOLA'
+    },
+    image: 'https://images.unsplash.com/photo-1521405924368-64c5b84bec60?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: 'Assets/Icons/Work/database.png'
+  },
+
   'password': {
     en: {
       title: ['PASSWORD', 'GENERATOR'],
@@ -131,6 +224,16 @@ export const projectsData = {
     },
     image: '/Assets/Photos/Work/autofine.webp',
     icon: '/Assets/Icons/Work/autofine.png'
+  },
+}
+
+// Pomocná funkce pro validaci URL adresy
+export const isValidUrl = (string) => {
+  try {
+    new URL(string)
+    return true
+  } catch (_) {
+    return false
   }
 }
 

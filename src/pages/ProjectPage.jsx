@@ -4,6 +4,7 @@ import { getProjectData } from '../data/projectsData'
 import { useHeader } from '../state/HeaderContext'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
+import OptimizedImage from '../components/OptimizedImage'
 
 export default function ProjectPage() {
   const { projectSlug } = useParams()
@@ -14,9 +15,11 @@ export default function ProjectPage() {
   const t = (key) => {
     const keys = key.split('.')
     let value = translations[language]
+    console.log('Translation Debug:', { key, language, value: translations[language] })
     for (const k of keys) {
       value = value?.[k]
     }
+    console.log('Final translation:', { key, result: value || key })
     return value || key
   }
 
@@ -71,7 +74,7 @@ export default function ProjectPage() {
             </div>
           </div>
           <div className="project-photo-container project-photo-container-phone">
-            <img 
+            <OptimizedImage 
               className="animate__animated animate__zoomIn" 
               src={project.image} 
               alt={project.title.join(' ')}
@@ -83,7 +86,7 @@ export default function ProjectPage() {
           </div>
         </div>
         <div className="project-photo-container project-photo-container-desktop">
-          <img 
+          <OptimizedImage 
             className="animate__animated animate__zoomIn" 
             src={project.image} 
             alt={project.title.join(' ')}
