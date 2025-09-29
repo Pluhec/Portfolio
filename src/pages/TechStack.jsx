@@ -1,13 +1,12 @@
 import ShaderCard from '../three/ShaderCard'
+import ShaderGradientBackground from '../components/ShaderGradientBackground'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
 
 // Reusable TechCard component
 const TechCard = ({ href, category, icon, title, isFirst = false }) => (
   <a target="_blank" rel="noreferrer" href={href} className={`card ${isFirst ? 'tech-card' : ''}`} id={isFirst ? 'second-card' : undefined} data-aos="zoom-in">
-    <video playsInline autoPlay loop muted>
-      <source src="/Assets/Videos/Abstract-doted-video.mp4" type="video/mp4"/>
-    </video>
+    <ShaderGradientBackground />
     <div className={`card-content ${isFirst ? 'tech-card' : ''}`}>
       <div className={isFirst ? 'card-content-p' : ''}>
         <p>{category}</p>

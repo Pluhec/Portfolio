@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useHeader } from '../state/HeaderContext'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
+import ShaderGradientBackground from '../components/ShaderGradientBackground'
 
 export default function Contact(){
   const { language } = useLanguage()
@@ -78,7 +79,9 @@ export default function Contact(){
           </form>
         </div>
         <div className="contact-right">
-          <video playsInline autoPlay loop muted src="/Assets/Videos/Abstract-video.mp4"></video>
+          <div style={{ position: 'relative', height: '80vh', width: '30vw', borderRadius: '10px', overflow: 'hidden' }}>
+            <ShaderGradientBackground />
+          </div>
         </div>
       </div>
       <div className="time-container">

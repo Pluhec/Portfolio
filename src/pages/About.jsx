@@ -3,6 +3,7 @@ import { useHeader } from '../state/HeaderContext'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
 import OptimizedImage from '../components/OptimizedImage'
+import ShaderGradientBackground from '../components/ShaderGradientBackground'
 
 export default function About(){
   const { enableSimpleHeader } = useHeader()
@@ -99,9 +100,7 @@ export default function About(){
           <div className="colophon-container"> 
             {colophonItems.map((item, index) => (
               <a key={index} target="_blank" rel="noreferrer" href={item.href} className="card" data-aos="zoom-in">
-                <video playsInline autoPlay loop muted>
-                  <source src="/Assets/Videos/Abstract-doted-video.mp4" type="video/mp4"/>
-                </video>
+                <ShaderGradientBackground />
                 <div className="card-content">
                   <div>
                     <p>{item.category}</p>
