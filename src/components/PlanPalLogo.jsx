@@ -1,5 +1,3 @@
-import React from "react";
-
 const PlanPalLogo = () => {
   return (
     <svg

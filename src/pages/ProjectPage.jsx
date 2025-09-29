@@ -82,7 +82,10 @@ export default function ProjectPage() {
           </div>
           <div className="project-about-container">
             <h1 className="animate__animated animate__fadeIn">{t('project.about')}</h1>
-            <p className="animate__animated animate__fadeIn">{project.description}</p>
+            <p 
+              className="animate__animated animate__fadeIn" 
+              dangerouslySetInnerHTML={{ __html: project.description }}
+            />
           </div>
         </div>
         <div className="project-photo-container project-photo-container-desktop">

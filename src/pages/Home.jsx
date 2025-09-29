@@ -4,6 +4,7 @@ import { translations } from '../data/translations'
 import { getAllProjects } from '../data/projectsData'
 import OptimizedImage from '../components/OptimizedImage'
 import PlanPalLogo from '../components/PlanPalLogo'
+import SpaceInvadersLogo from '../components/SpaceInvadersLogo'
 
 export default function Home(){
   const { language } = useLanguage()
@@ -38,6 +39,10 @@ export default function Home(){
                 {project.icon === 'planpal-logo' ? (
                   <div className="card-icon">
                     <PlanPalLogo />
+                  </div>
+                ) : project.icon === 'space-invaders' ? (
+                  <div className="card-icon">
+                    <SpaceInvadersLogo />
                   </div>
                 ) : (
                   <OptimizedImage className="card-icon" src={project.icon} alt=""/>

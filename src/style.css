@@ -28,6 +28,12 @@
     src: url(/Assets/Fonts/sequel/Sequel\ Sans\ Book\ Body.ttf);
 }
 
+.jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 :root{
     --clr-light: #fff;
     --clr-dark: #000;
@@ -863,6 +869,10 @@ footer a{
     transform: translate(-50%, -50%);
 }
 
+.card-icon[src*="TheMartian.png"] {
+    width: 40%;
+}
+
 .left-heading{
     font-family: var(--ff-bold-head);
     font-size: 3.5vw;
@@ -1301,6 +1311,16 @@ footer a{
     margin-top: 5px;
     font-family: var(--ff-book-disp);
     font-size: 0.9vw;
+}
+
+.project-about-container p a{
+    color: var(--clr-light);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.project-about-container p a:hover{
+    color: var(--clr-button-hover);
 }
 
 .project-about-container h1{
