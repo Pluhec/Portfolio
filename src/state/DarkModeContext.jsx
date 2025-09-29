@@ -10,12 +10,7 @@ export function DarkModeProvider({ children }){
       return savedMode === 'enabled'
     }
     
-    // Jinak detekuj systémové nastavení
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-    }
-    
-    // Fallback na tmavý režim
+    // Výchozí nastavení je tmavý režim (dark mode jako default)
     return true
   })
 
@@ -49,7 +44,7 @@ export function DarkModeProvider({ children }){
     }
   }, [dark])
 
-  // Initialize on mount a sleduj změny systémového nastavení
+  // Initialize on mount - výchozí je tmavý režim
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode')
     
@@ -59,22 +54,8 @@ export function DarkModeProvider({ children }){
       return
     }
     
-    // Jinak detekuj systémové nastavení
-    if (window.matchMedia) {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-      setDark(mediaQuery.matches)
-      
-      // Poslouchej změny systémového nastavení (pouze pokud nemá uložené preference)
-      const handleChange = (e) => {
-        const currentSavedMode = localStorage.getItem('darkMode')
-        if (currentSavedMode === null || currentSavedMode === 'null') {
-          setDark(e.matches)
-        }
-      }
-      
-      mediaQuery.addEventListener('change', handleChange)
-      return () => mediaQuery.removeEventListener('change', handleChange)
-    }
+    // Jinak nastav výchozí tmavý režim
+    setDark(true)
   }, [])
 
   const resetToSystemPreference = () => {

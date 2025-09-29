@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import AOS from 'aos'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -16,6 +16,15 @@ import Header from './components/Header'
 function AppContent() {
   const { navOpen } = useNavigation()
   
+  // Redirect handling pro starou /cz URL
+  useEffect(() => {
+    const path = window.location.pathname
+    if (path.startsWith('/cz')) {
+      const newPath = path.replace('/cz', '') || '/'
+      window.location.replace(newPath)
+    }
+  }, [])
+  
   return (
     <>
       <Nav />
@@ -27,6 +36,9 @@ function AppContent() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/tech-stack" element={<TechStack/>} />
           <Route path="/project/:projectSlug" element={<ProjectPage/>} />
+          {/* Redirect route pro /cz jako záložka */}
+          <Route path="/cz" element={<Navigate to="/" replace />} />
+          <Route path="/cz/*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </>

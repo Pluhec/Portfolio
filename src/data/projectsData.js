@@ -1,196 +1,33 @@
 export const projectsData = {
-'TheMartian': {
+  'droneDatabase': {
     en: {
-      title: ['The Martian'],
-      subtitle: 'Unity + C#',
+      title: ['Drone Mail'],
+      subtitle: 'Database MySQL',
       buttons: [
         {
           type: 'github', 
           text: 'Github',
-          url: 'https://github.com/Pluhec/The-Martian'
+          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
         }
       ],
-      // EN
-    description: 'Final project for the 2D Game Programming course. A 2D game inspired by the film The Martian, built in Unity with C#. The player completes film-inspired quests (bringing the habitat online and maintaining it, repairing equipment, progressing through missions). Focused on quests, UI, animations, and a smooth game loop. Collaboration with <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrik</a> — great team synergy, and we plan to continue building projects together.',
-      category: 'Unity + C#'
-    },
-    cz: {
-      title: ['The Martian'],
-      subtitle: 'SQlite Node.js',
-      buttons: [
-        {
-          type: 'github',  
-          text: 'Github',
-          url: 'https://github.com/Pluhec/The-Martian'
-        }
-      ],
-      // CZ
-    // CZ
-description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspirovaná filmem Marťan (The Martian), postavená v Unity s C#. Hráč plní úkoly po vzoru filmu (zprovoznění a údržba základny, opravy vybavení, postup přes jednotlivé mise). Důraz na questy, UI, animace a plynulý herní loop. Spolupráce s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a> — skvělá týmová souhra, chceme na podobných projektech pokračovat.',
-      category: 'ŠKOLA'
-    },
-    image: '/Assets/Photos/Work/TheMartian.png',
-    icon: '/Assets/Icons/Work/TheMartian.png'
-  },
-
-'Geoguesser': {
-    en: {
-      title: ['Geoguesser'],
-      subtitle: 'React ',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/SimpleGeoguesser'
-        }
-      ],
-      // EN
-    description: 'A “low-budget GeoGuessr” mini-game: the app shows metrics for a random point on the map (temperature, wind, climatic min/max, etc.) and your task is to guess where it is. Built purely in React (front-end).',
-      category: 'FOR FUN'
-    },
-    cz: {
-      title: ['SQlite Node CRUD'],
-      subtitle: 'SQlite Node.js',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/SimpleGeoguesser'
-        }
-      ],
-      // CZ
-    description: 'Mini hra „low-budget GeoGuessr“: aplikace zobrazí hodnoty pro náhodný bod na mapě (teplota, vítr, klimatické minimum/maximum apod.) a tvým úkolem je podle nich odhadnout, kde se místo nachází. Napsané čistě v Reactu (front-end).',
-      category: 'PRO ZÁBAVU'
-    },
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    icon: '/Assets/Icons/Work/placeholder.png'
-  },
-
-'SQliteNode': {
-    en: {
-      title: ['SQlite Node CRUD'],
-      subtitle: 'SQlite Node.js',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/Node-SQLite-CRUD-app'
-        }
-      ],
-      // EN
-    description: 'Final project for the JavaScript course: a simple CRUD web application using Node.js and an SQLite database. The Node.js/Express backend provides a REST API (create/read/update/delete) and stores data in SQLite; the frontend has a simple UI for working with forms and lists.',
+      description: 'My final project for the MySQL class. I built a relational database that simulates a “postal service of the future” where drones deliver packages. The system tracks warehouses, stations, drones, users, deliveries, and operators, and it watches drone availability, delivery times, and battery levels. When a delivery is created, a drone is reserved, completes the drop-off, and returns to charge. The goal is to show how data could coordinate the whole operation clearly and reliably.',
       category: 'SCHOOL'
     },
     cz: {
-      title: ['SQlite Node CRUD'],
-      subtitle: 'SQlite Node.js',
+      title: ['Dronová Pošta'],
+      subtitle: 'Databáze MySQL',
       buttons: [
         {
           type: 'github', 
           text: 'Github',
-          url: 'https://github.com/Pluhec/Node-SQLite-CRUD-app'
+          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
         }
       ],
-      // CZ
-    description: 'Závěrečná práce do předmětu JavaScript: jednoduchá CRUD webová aplikace s Node.js a databází SQLite. Backend v Node.js/Express poskytuje REST API (create/read/update/delete) a ukládá data do SQLite; frontend má jednoduché UI pro práci s formuláři a seznamy.',
+      description: 'Moje závěrečná práce do předmětu MySQL. Vytvořil jsem relační databázi, která simuluje „poštu budoucnosti“, kde zásilky doručují drony. Systém eviduje sklady, stanice, drony, uživatele, zásilky i operátory a hlídá dostupnost dronů, termíny doručení a stav baterií. Když někdo objedná doručení, dron je rezervovaný, doručí balíček a vrátí se na nabíjení. Cílem je ukázat, jak by šlo takový provoz řídit daty přehledně a spolehlivě.',
       category: 'ŠKOLA'
     },
-    image: 'https://images.unsplash.com/photo-1596312227389-44ec814d5c1c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    icon: '/Assets/Icons/Work/delete.png'
-  },
-
-'SpaceInvaders': {
-    en: {
-      title: ['Space Invaders'],
-      subtitle: 'Unity + C#',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/Space-Invaders'
-        }
-      ],
-      // EN
-    description: 'Course project for 2D Game Programming: a straight Space Invaders clone. I learned Unity fundamentals — animation, UI, and working in the editor — together with C# scripting (player movement and shooting, enemy behaviour, collisions, score and lives). Focused on clear game logic and easy extensibility (extra waves, power-ups).',
-      category: 'SCHOOL'
-    },
-    cz: {
-      title: ['Space Invaders'],
-      subtitle: 'Unity + C#',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/Space-Invaders'
-        }
-      ],
-      description: 'Školní projekt v rámci předmětu Programování 2D her: čistý klon Space Invaders. Učil jsem se základy Unity — animace, UI a práce v editoru — společně s C# skriptováním (pohyb a střelba hráče, chování nepřátel, kolize, skóre a životy). Důraz na přehlednou logiku a jednoduché rozšíření (další vlny, power-upy).',
-      category: 'ŠKOLA'
-    },
-    image: '/Assets/Photos/Work/image.png',
-    icon: 'space-invaders'
-  },
-
-'dodWeb': {
-    en: {
-      title: ['DOD Web'],
-      subtitle: 'React + MySQL',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/DOD-Web'
-        }
-      ],
-      description: 'School team project for the Open Day: three connected parts — a web app (my team), a database, and a game — that communicate with each other (e.g., the game leaderboard is displayed on the website and the website serves as the game’s client). My main role was frontend and database design; I also closely collaborated on the backend with <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrik</a>. It was our first time working together on a school project, and we plan to continue collaborating on future projects.',
-      category: 'SCHOOL'
-    },
-    cz: {
-      title: ['DOD Web'],
-      subtitle: 'React + MySQL',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/DOD-Web'
-        }
-      ],
-      description: 'Školní týmový projekt k Dni otevřených dveří: tři propojené části — webová aplikace (můj tým), databáze a hra — které spolu komunikují (např. leaderboard ze hry se zobrazuje na webu a web slouží jako klient hry). Moje hlavní role byla frontend a návrh databáze; zároveň jsem úzce spolupracoval na backendu s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a>. Byla to naše první společná práce na školním projektu a plánujeme spolu pokračovat na dalších projektech.',
-      category: 'ŠKOLA'
-    },
-    image: 'https://creativehill.cz/imager/data/galleries/vyvoj-multimedialnich-aplikaci/gallery/43936/Sn%C3%ADmek-obrazovky-2024-04-16-v-12.58.32_be3c7b2f2ae30360d86a5c64fb3e27d0.png',
-    icon: '/Assets/Icons/Work/opened-door-aperture.png'
-  },
-
-'javaTenis': {
-    en: {
-      title: ['Tenis Score Counter'],
-      subtitle: 'Java',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/objektovy-tenis'
-        }
-      ],
-      description: 'Classroom assignment for Object-Oriented Programming in Java: a simple tennis score counter. Implements 15–30–40, deuce/advantage, and game resolution. Focused on clean OOP and a clear game logic that can be easily extended (sets, tie-break).',
-      category: 'SCHOOL'
-    },
-    cz: {
-      title: ['Tenisové počítadlo'],
-      subtitle: 'Java',
-      buttons: [
-        {
-          type: 'github', 
-          text: 'Github',
-          url: 'https://github.com/Pluhec/objektovy-tenis'
-        }
-      ],
-      description: 'Práce z hodiny objektově orientovaného programování v Javě: jednoduchá aplikace pro počítání tenisového skóre. Umí 15–30–40, deuce/výhoda a vyhodnocení gamu. Důraz na čisté OOP a přehlednou herní logiku s možností snadného rozšíření (sety, tie-break).',
-      category: 'ŠKOLA'
-    },
-    image: 'https://images.unsplash.com/photo-1541744573515-478c959628a0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    icon: 'Assets/Icons/Work/counter.png'
+    image: 'https://images.unsplash.com/photo-1521405924368-64c5b84bec60?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: 'Assets/Icons/Work/database.png'
   },
 
   'planPal': {
@@ -223,36 +60,229 @@ description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspi
     image: 'https://images.unsplash.com/photo-1692895591954-451050db22fd?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     icon: 'planpal-logo'
   },
-
-  'droneDatabase': {
+  
+  'TheMartian': {
     en: {
-      title: ['Drone Mail'],
-      subtitle: 'Database MySQL',
+      title: ['The Martian'],
+      subtitle: 'Unity + C#',
       buttons: [
         {
           type: 'github', 
           text: 'Github',
-          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
+          url: 'https://github.com/Pluhec/The-Martian'
         }
       ],
-      description: 'My final project for the MySQL class. I built a relational database that simulates a “postal service of the future” where drones deliver packages. The system tracks warehouses, stations, drones, users, deliveries, and operators, and it watches drone availability, delivery times, and battery levels. When a delivery is created, a drone is reserved, completes the drop-off, and returns to charge. The goal is to show how data could coordinate the whole operation clearly and reliably.',
+      // EN
+    description: 'Final project for the 2D Game Programming course. A 2D game inspired by the film The Martian, built in Unity with C#. The player completes film-inspired quests (bringing the habitat online and maintaining it, repairing equipment, progressing through missions). Focused on quests, UI, animations, and a smooth game loop. Collaboration with <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrik</a> — great team synergy, and we plan to continue building projects together.',
       category: 'SCHOOL'
     },
     cz: {
-      title: ['Dronová Pošta'],
-      subtitle: 'Databáze MySQL',
+      title: ['The Martian'],
+      subtitle: 'SQlite Node.js',
+      buttons: [
+        {
+          type: 'github',  
+          text: 'Github',
+          url: 'https://github.com/Pluhec/The-Martian'
+        }
+      ],
+      // CZ
+    description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspirovaná filmem Marťan (The Martian), postavená v Unity s C#. Hráč plní úkoly po vzoru filmu (zprovoznění a údržba základny, opravy vybavení, postup přes jednotlivé mise). Důraz na questy, UI, animace a plynulý herní loop. Spolupráce s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a> — skvělá týmová souhra, chceme na podobných projektech pokračovat.',
+      category: 'ŠKOLA'
+    },
+    image: '/Assets/Photos/Work/TheMartian.png',
+    icon: '/Assets/Icons/Work/TheMartian.png'
+  },
+
+  'tcz': {
+    en: {
+      title: ['Tiger', 'Club Zlin'],
+      subtitle: 'Webflow',
+      buttons: [
+        {
+          type: 'link',
+          text: 'View Site', 
+          url: 'https://www.tigerclubzlin.cz'
+        }
+      ],
+      description: 'I created a website for Tigers Club Zlín, showcasing their kickboxing and self-defense programs. Built using Webflow, the site includes details about training sessions, the coach, and the class schedule. I specialize in custom web design, focusing on functionality and aesthetics to meet clients\' needs.',
+      category: 'COMMISSION'
+    },
+    cz: {
+      title: ['Tiger', 'Club Zlín'],
+      subtitle: 'Webflow',
+      buttons: [
+        {
+          type: 'link',
+          text: 'Zobrazit web', 
+          url: 'https://www.tigerclubzlin.cz'
+        }
+      ],
+      description: 'Vytvořil jsem webové stránky pro Tigers Club Zlín, které prezentují jejich kickboxové a sebeobrané programy. Vytvořené pomocí Webflow, stránky obsahují detaily o tréninkových sezeních, trenérovi a rozvrhu hodin. Specializuji se na vlastní webový design, zaměřený na funkcionalitu a estetiku pro splnění potřeb klientů.',
+      category: 'ZAKÁZKA'
+    },
+    image: '/Assets/Photos/Work/TGZ-bck.webp',
+    icon: '/Assets/Icons/Work/TGZ.png'
+  },
+
+  'SQliteNode': {
+    en: {
+      title: ['SQlite Node CRUD'],
+      subtitle: 'SQlite Node.js',
       buttons: [
         {
           type: 'github', 
           text: 'Github',
-          url: 'https://github.com/Pluhec/DatabazovySystemDronuJakubPluhacek'
+          url: 'https://github.com/Pluhec/Node-SQLite-CRUD-app'
         }
       ],
-      description: 'Moje závěrečná práce do předmětu MySQL. Vytvořil jsem relační databázi, která simuluje „poštu budoucnosti“, kde zásilky doručují drony. Systém eviduje sklady, stanice, drony, uživatele, zásilky i operátory a hlídá dostupnost dronů, termíny doručení a stav baterií. Když někdo objedná doručení, dron je rezervovaný, doručí balíček a vrátí se na nabíjení. Cílem je ukázat, jak by šlo takový provoz řídit daty přehledně a spolehlivě.',
+      // EN
+    description: 'Final project for the JavaScript course: a simple CRUD web application using Node.js and an SQLite database. The Node.js/Express backend provides a REST API (create/read/update/delete) and stores data in SQLite; the frontend has a simple UI for working with forms and lists.',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['SQlite Node CRUD'],
+      subtitle: 'SQlite Node.js',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/Node-SQLite-CRUD-app'
+        }
+      ],
+      // CZ
+    description: 'Závěrečná práce do předmětu JavaScript: jednoduchá CRUD webová aplikace s Node.js a databází SQLite. Backend v Node.js/Express poskytuje REST API (create/read/update/delete) a ukládá data do SQLite; frontend má jednoduché UI pro práci s formuláři a seznamy.',
       category: 'ŠKOLA'
     },
-    image: 'https://images.unsplash.com/photo-1521405924368-64c5b84bec60?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    icon: 'Assets/Icons/Work/database.png'
+    image: 'https://images.unsplash.com/photo-1596312227389-44ec814d5c1c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: '/Assets/Icons/Work/delete.png'
+  },
+
+  'SpaceInvaders': {
+    en: {
+      title: ['Space Invaders'],
+      subtitle: 'Unity + C#',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/Space-Invaders'
+        }
+      ],
+      // EN
+    description: 'Course project for 2D Game Programming: a straight Space Invaders clone. I learned Unity fundamentals — animation, UI, and working in the editor — together with C# scripting (player movement and shooting, enemy behaviour, collisions, score and lives). Focused on clear game logic and easy extensibility (extra waves, power-ups).',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['Space Invaders'],
+      subtitle: 'Unity + C#',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/Space-Invaders'
+        }
+      ],
+      description: 'Školní projekt v rámci předmětu Programování 2D her: čistý klon Space Invaders. Učil jsem se základy Unity — animace, UI a práce v editoru — společně s C# skriptováním (pohyb a střelba hráče, chování nepřátel, kolize, skóre a životy). Důraz na přehlednou logiku a jednoduché rozšíření (další vlny, power-upy).',
+      category: 'ŠKOLA'
+    },
+    image: '/Assets/Photos/Work/image.png',
+    icon: 'space-invaders'
+  },
+
+  'javaTenis': {
+    en: {
+      title: ['Tenis Score Counter'],
+      subtitle: 'Java',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/objektovy-tenis'
+        }
+      ],
+      description: 'Classroom assignment for Object-Oriented Programming in Java: a simple tennis score counter. Implements 15–30–40, deuce/advantage, and game resolution. Focused on clean OOP and a clear game logic that can be easily extended (sets, tie-break).',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['Tenisové počítadlo'],
+      subtitle: 'Java',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/objektovy-tenis'
+        }
+      ],
+      description: 'Práce z hodiny objektově orientovaného programování v Javě: jednoduchá aplikace pro počítání tenisového skóre. Umí 15–30–40, deuce/výhoda a vyhodnocení gamu. Důraz na čisté OOP a přehlednou herní logiku s možností snadného rozšíření (sety, tie-break).',
+      category: 'ŠKOLA'
+    },
+    image: 'https://images.unsplash.com/photo-1541744573515-478c959628a0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: 'Assets/Icons/Work/counter.png'
+  },
+
+  'dodWeb': {
+    en: {
+      title: ['DOD Web'],
+      subtitle: 'React + MySQL',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/DOD-Web'
+        }
+      ],
+      description: 'School team project for the Open Day: three connected parts — a web app (my team), a database, and a game — that communicate with each other (e.g., the game leaderboard is displayed on the website and the website serves as the game’s client). My main role was frontend and database design; I also closely collaborated on the backend with <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrik</a>. It was our first time working together on a school project, and we plan to continue collaborating on future projects.',
+      category: 'SCHOOL'
+    },
+    cz: {
+      title: ['DOD Web'],
+      subtitle: 'React + MySQL',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/DOD-Web'
+        }
+      ],
+      description: 'Školní týmový projekt k Dni otevřených dveří: tři propojené části — webová aplikace (můj tým), databáze a hra — které spolu komunikují (např. leaderboard ze hry se zobrazuje na webu a web slouží jako klient hry). Moje hlavní role byla frontend a návrh databáze; zároveň jsem úzce spolupracoval na backendu s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a>. Byla to naše první společná práce na školním projektu a plánujeme spolu pokračovat na dalších projektech.',
+      category: 'ŠKOLA'
+    },
+    image: 'https://creativehill.cz/imager/data/galleries/vyvoj-multimedialnich-aplikaci/gallery/43936/Sn%C3%ADmek-obrazovky-2024-04-16-v-12.58.32_be3c7b2f2ae30360d86a5c64fb3e27d0.png',
+    icon: '/Assets/Icons/Work/opened-door-aperture.png'
+  },
+
+'Geoguesser': {
+    en: {
+      title: ['Geoguesser'],
+      subtitle: 'React',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/SimpleGeoguesser'
+        }
+      ],
+      // EN
+    description: 'A “low-budget GeoGuessr” mini-game: the app shows metrics for a random point on the map (temperature, wind, climatic min/max, etc.) and your task is to guess where it is. Built purely in React (front-end).',
+      category: 'FOR FUN'
+    },
+    cz: {
+      title: ['Geoguesser'],
+      subtitle: 'React',
+      buttons: [
+        {
+          type: 'github', 
+          text: 'Github',
+          url: 'https://github.com/Pluhec/SimpleGeoguesser'
+        }
+      ],
+      // CZ
+    description: 'Mini hra „low-budget GeoGuessr“: aplikace zobrazí hodnoty pro náhodný bod na mapě (teplota, vítr, klimatické minimum/maximum apod.) a tvým úkolem je podle nich odhadnout, kde se místo nachází. Napsané čistě v Reactu (front-end).',
+      category: 'PRO ZÁBAVU'
+    },
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    icon: '/Assets/Icons/Work/placeholder.png'
   },
 
   'password': {
@@ -294,37 +324,6 @@ description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspi
     },
     image: '/Assets/Photos/Work/password-bck.webp',
     icon: '/Assets/Icons/Work/password-generator.png'
-  },
-
-  'tcz': {
-    en: {
-      title: ['Tiger', 'Club Zlin'],
-      subtitle: 'Webflow',
-      buttons: [
-        {
-          type: 'link',
-          text: 'View Site', 
-          url: 'https://www.tigerclubzlin.cz'
-        }
-      ],
-      description: 'I created a website for Tigers Club Zlín, showcasing their kickboxing and self-defense programs. Built using Webflow, the site includes details about training sessions, the coach, and the class schedule. I specialize in custom web design, focusing on functionality and aesthetics to meet clients\' needs.',
-      category: 'COMMISSION'
-    },
-    cz: {
-      title: ['Tiger', 'Club Zlín'],
-      subtitle: 'Webflow',
-      buttons: [
-        {
-          type: 'link',
-          text: 'Zobrazit web', 
-          url: 'https://www.tigerclubzlin.cz'
-        }
-      ],
-      description: 'Vytvořil jsem webové stránky pro Tigers Club Zlín, které prezentují jejich kickboxové a sebeobrané programy. Vytvořené pomocí Webflow, stránky obsahují detaily o tréninkových sezeních, trenérovi a rozvrhu hodin. Specializuji se na vlastní webový design, zaměřený na funkcionalitu a estetiku pro splnění potřeb klientů.',
-      category: 'ZAKÁZKA'
-    },
-    image: '/Assets/Photos/Work/TGZ-bck.webp',
-    icon: '/Assets/Icons/Work/TGZ.png'
   },
 
   'dark-mode': {

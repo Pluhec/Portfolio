@@ -1,0 +1,6 @@
+# Redirect z /cz na root doménu
+/cz/* / 301
+/cz / 301
+
+# Fallback pro SPA routing
+/* /index.html 200
