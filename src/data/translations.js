@@ -75,6 +75,26 @@ export const translations = {
       }
     },
 
+    // EN additions
+    techSections: {
+      web: 'Web Development',
+      languages: 'Programming Languages',
+      database: 'Databases',
+      hardware: 'Hardware & IoT',
+      tools: 'Dev Tools',
+      design: 'Design & Graphics',
+      nocode: 'CMS & No-Code',
+      os: 'Operating Systems',
+      projects: 'Projects',
+      education: 'Education',
+      strengths: 'Strengths'
+    },
+    levels: {
+      advanced: 'Advanced',
+      intermediate: 'Intermediate',
+      basic: 'Basic'
+    },
+
     // Project categories
     categories: {
       forFun: 'FOR FUN',
@@ -173,6 +193,26 @@ export const translations = {
         editor: 'EDITOR',
         music: 'HUDBA'
       }
+    },
+
+    // CZ additions
+    techSections: {
+      web: 'Webový vývoj',
+      languages: 'Programovací jazyky',
+      database: 'Databáze',
+      hardware: 'Hardware & IoT',
+      tools: 'Vývojové nástroje',
+      design: 'Design & Grafika',
+      nocode: 'CMS & No-Code',
+      os: 'Operační systémy',
+      projects: 'Projekty',
+      education: 'Vzdělání',
+      strengths: 'Silné stránky'
+    },
+    levels: {
+      advanced: 'Pokročilý',
+      intermediate: 'Středně pokročilý',
+      basic: 'Základy'
     },
 
     // Project categories
