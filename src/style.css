@@ -42,6 +42,7 @@
     --clr-accent2: #707070;
     --clr-button: #D9D9D9;
     --clr-button-hover: #1010c9;
+    --clr-button-lighter-hover: #4141f9;
   
     --ff-heavy-body: "sequelHeavyBody", sans-serif;
     --ff-book-disp: "sequelBookDisp", sans-serif;
@@ -59,6 +60,7 @@
     --clr-accent2: #292929;
     --clr-button: #787878;
     --clr-button-hover: #1010c9;
+    --clr-button-lighter-hover: #4141f9;
 }
 
 *{
@@ -1309,13 +1311,14 @@ footer a{
 }
 
 .project-about-container p a{
-    color: var(--clr-light);
-    text-decoration: underline;
-    transition: color 0.3s ease;
+    color: var(--clr-button-lighter-hover);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .project-about-container p a:hover{
-    color: var(--clr-button-hover);
+    color: var(--clr-button-lighter-hover);
+    text-decoration: underline;
 }
 
 .project-about-container h1{
