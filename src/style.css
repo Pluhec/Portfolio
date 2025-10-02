@@ -879,8 +879,8 @@ footer a{
     transform: translate(-50%, -50%);
 }
 
-.card-icon[src*="TheMartian.png"] {
-    width: 40%;
+.card-icon[src*="TheMartinaBlack.png"] {
+    width: 50%;
 }
 
 .left-heading{
