@@ -78,7 +78,7 @@ export const projectsData = {
     },
     cz: {
       title: ['The Martian'],
-      subtitle: 'SQlite Node.js',
+      subtitle: 'Unity + C#',
       buttons: [
         {
           type: 'github',  
@@ -91,6 +91,12 @@ export const projectsData = {
       category: 'ŠKOLA'
     },
     image: '/Assets/Photos/Work/TheMartian.png',
+    images: [
+      '/Assets/Photos/Work/TheMartian.png',
+      '/Assets/Photos/Work/TGZ-bck.webp',
+      '/Assets/Photos/Work/TheMartian.png',
+      '/Assets/Photos/Work/TheMartian.png'
+    ],
     icon: '/Assets/Icons/Work/TheMartian.png'
   },
 
@@ -407,6 +413,7 @@ export const getProjectData = (slug, language = 'en') => {
   return {
     ...project[language],
     image: project.image,
+    images: project.images,
     icon: project.icon
   }
 }
@@ -417,6 +424,7 @@ export const getAllProjects = (language = 'en') => {
     slug,
     ...project[language],
     image: project.image,
+    images: project.images,
     icon: project.icon
   }))
 }

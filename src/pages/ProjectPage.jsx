@@ -5,6 +5,7 @@ import { useHeader } from '../state/HeaderContext'
 import { useLanguage } from '../state/LanguageContext'
 import { translations } from '../data/translations'
 import OptimizedImage from '../components/OptimizedImage'
+import ParallaxImageCarousel from '../components/ParallaxImageCarousel'
 
 export default function ProjectPage() {
   const { projectSlug } = useParams()
@@ -27,11 +28,19 @@ export default function ProjectPage() {
   useEffect(() => {
     enableSimpleHeader()
     
-    // Cleanup - vrátíme full header při opuštění komponenty
+    // Pokud má projekt více obrázků, zakážeme scrollování
+    if (project?.images && project.images.length > 1) {
+      document.documentElement.classList.add('no-scroll')
+      document.body.classList.add('no-scroll')
+    }
+    
+    // Cleanup - vrátíme full header a povolíme scrollování při opuštění komponenty
     return () => {
       enableFullHeader()
+      document.documentElement.classList.remove('no-scroll')
+      document.body.classList.remove('no-scroll')
     }
-  }, [enableSimpleHeader, enableFullHeader])
+  }, [enableSimpleHeader, enableFullHeader, project?.images])
 
   // Pokud projekt neexistuje, zobrazíme 404
   if (!project) {
@@ -74,11 +83,19 @@ export default function ProjectPage() {
             </div>
           </div>
           <div className="project-photo-container project-photo-container-phone">
-            <OptimizedImage 
-              className="animate__animated animate__zoomIn" 
-              src={project.image} 
-              alt={project.title.join(' ')}
-            />
+            {project.images && project.images.length > 1 ? (
+              <ParallaxImageCarousel 
+                images={project.images}
+                alt={project.title.join(' ')}
+                className=""
+              />
+            ) : (
+              <OptimizedImage 
+                className="animate__animated animate__zoomIn" 
+                src={project.image} 
+                alt={project.title.join(' ')}
+              />
+            )}
           </div>
           <div className="project-about-container">
             <h1 className="animate__animated animate__fadeIn">{t('project.about')}</h1>
@@ -89,11 +106,19 @@ export default function ProjectPage() {
           </div>
         </div>
         <div className="project-photo-container project-photo-container-desktop">
-          <OptimizedImage 
-            className="animate__animated animate__zoomIn" 
-            src={project.image} 
-            alt={project.title.join(' ')}
-          />
+          {project.images && project.images.length > 1 ? (
+            <ParallaxImageCarousel 
+              images={project.images}
+              alt={project.title.join(' ')}
+              className=""
+            />
+          ) : (
+            <OptimizedImage 
+              className="animate__animated animate__zoomIn" 
+              src={project.image} 
+              alt={project.title.join(' ')}
+            />
+          )}
         </div>
       </div>
     </main>
