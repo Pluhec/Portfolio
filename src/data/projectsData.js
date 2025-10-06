@@ -96,10 +96,13 @@ export const projectsData = {
     },
     image: '/Assets/Photos/Work/TheMartian.png',
     images: [
-      '/Assets/Photos/Work/TheMartian.png',
-      '/Assets/Photos/Work/TGZ-bck.webp',
-      '/Assets/Photos/Work/TheMartian.png',
-      '/Assets/Photos/Work/TheMartian.png'
+      '/Assets/Photos/Work/Martian/TheMartian.png',
+      '/Assets/Photos/Work/Martian/ascii.png',
+      '/Assets/Photos/Work/Martian/fertilizer.png', 
+      '/Assets/Photos/Work/Martian/rocket.png',
+      '/Assets/Photos/Work/Martian/startRocket.png',
+      '/Assets/Photos/Work/Martian/terminal.png',
+      '/Assets/Photos/Work/Martian/waterGame.png'
     ],
     icon: '/Assets/Icons/Work/TheMartinaBlack.png'
   },
