@@ -94,7 +94,7 @@ export const projectsData = {
     description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspirovaná filmem Marťan (The Martian), postavená v Unity s C#. Hráč plní úkoly po vzoru filmu (zprovoznění a údržba základny, opravy vybavení, postup přes jednotlivé mise). Důraz na questy, UI, animace a plynulý herní loop. Spolupráce s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a> — skvělá týmová souhra, chceme na podobných projektech pokračovat.',
       category: 'ŠKOLA'
     },
-    image: '/Assets/Photos/Work/TheMartian.png',
+    image: '/Assets/Photos/Work/Martian/TheMartian.png',
     images: [
       '/Assets/Photos/Work/Martian/TheMartian.png',
       '/Assets/Photos/Work/Martian/ascii.png',

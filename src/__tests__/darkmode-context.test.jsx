@@ -9,9 +9,12 @@ function Probe(){
 
 describe('DarkModeContext', () => {
   it('toggles and persists without React default import', () => {
+  
     localStorage.setItem('darkMode', 'disabled')
     const { getByText } = render(<DarkModeProvider><Probe/></DarkModeProvider>)
-    getByText('off').click()
+
+    getByText('on').click()
+    
     expect(localStorage.getItem('darkMode')).toBe('enabled')
   })
 })

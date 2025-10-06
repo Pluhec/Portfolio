@@ -3,23 +3,21 @@ const DarkModeContext = createContext()
 
 export function DarkModeProvider({ children }){
   const [dark, setDark] = useState(() => {
-    const savedMode = localStorage.getItem('darkMode')
-    
-    // Pokud má uživatel uložené nastavení, použij ho
-    if (savedMode !== null && savedMode !== 'null') {
-      return savedMode === 'enabled'
-    }
-    
-    // Výchozí nastavení je tmavý režim (dark mode jako default)
+    try {
+      const savedMode = localStorage.getItem('darkMode')
+      if (savedMode !== null && savedMode !== 'null') {
+        return savedMode === 'disabled'
+      }
+    } catch (e) {}
     return true
   })
 
   useEffect(() => {
     const enableDarkMode = () => {
-      document.body.classList.add('darkmode')
+      document.documentElement.classList.add('darkmode')
+
       localStorage.setItem('darkMode', 'enabled')
       
-      // Update all link icons to black
       const darkImg = document.getElementsByClassName('link-icon')
       for (let i = 0; i < darkImg.length; i++) {
         darkImg[i].src = '/Assets/Icons/Link/link-black.png'
@@ -27,10 +25,10 @@ export function DarkModeProvider({ children }){
     }
 
     const disableDarkMode = () => {
-      document.body.classList.remove('darkmode')
+      document.documentElement.classList.remove('darkmode')
+
       localStorage.setItem('darkMode', 'disabled')
       
-      // Update all link icons to white
       const darkImg = document.getElementsByClassName('link-icon')
       for (let i = 0; i < darkImg.length; i++) {
         darkImg[i].src = '/Assets/Icons/Link/link-white.png'
@@ -46,16 +44,14 @@ export function DarkModeProvider({ children }){
 
   // Initialize on mount - výchozí je tmavý režim
   useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode')
-    
-    // Pokud má uživatel uložené nastavení, použij ho
-    if (savedMode !== null && savedMode !== 'null') {
-      setDark(savedMode === 'enabled')
-      return
+    try {
+      const savedMode = localStorage.getItem('darkMode')
+      if (savedMode !== null && savedMode !== 'null') {
+        setDark(savedMode === 'disabled')
+      }
+    } catch (e) {
+      // ignore localStorage errors
     }
-    
-    // Jinak nastav výchozí tmavý režim
-    setDark(true)
   }, [])
 
   const resetToSystemPreference = () => {
