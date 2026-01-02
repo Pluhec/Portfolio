@@ -10,6 +10,9 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
   const containerRef = useRef(null)
   const scrollAccumulator = useRef(0)
   const snapTimeout = useRef(null)
+  const touchStartY = useRef(null)
+  const touchLastY = useRef(null)
+  const isTouching = useRef(false)
 
   const buildSlides = () => {
     const slides = []
@@ -130,6 +133,84 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
       clearTimeout(snapTimeout.current)
     }
   }, [embedUrls, leadEmbed, images, currentImageIndex, scrollPosition, isSnapping, embedEnabled, snapToIndex, showScrollHint])
+
+  // Touch support for mobile devices (vertical swipe to change slides)
+  useEffect(() => {
+    if (!slides || slides.length <= 1) return
+    const node = containerRef.current
+    if (!node) return
+
+    const handleTouchStart = (e) => {
+      if (slides[currentImageIndex]?.type === 'embed' && embedEnabled) return
+      if (showScrollHint) setShowScrollHint(false)
+      isTouching.current = true
+      const y = e.touches[0]?.clientY ?? 0
+      touchStartY.current = y
+      touchLastY.current = y
+      clearTimeout(snapTimeout.current)
+    }
+
+    const handleTouchMove = (e) => {
+      if (!isTouching.current) return
+      if (slides[currentImageIndex]?.type === 'embed' && embedEnabled) return
+      e.preventDefault()
+      if (isSnapping) return
+      const y = e.touches[0]?.clientY ?? 0
+      const deltaStep = (touchLastY.current ?? y) - y // swipe up -> positive delta
+      touchLastY.current = y
+
+      const scrollSensitivity = 1.2
+      const snapThreshold = 40
+      scrollAccumulator.current += deltaStep * scrollSensitivity
+
+      const containerHeight = 80
+      const basePosition = currentImageIndex * containerHeight
+      const newPosition = basePosition + scrollAccumulator.current
+      const maxPosition = (slides.length - 1) * containerHeight
+      const constrainedPosition = Math.max(0, Math.min(maxPosition, newPosition))
+      setScrollPosition(constrainedPosition)
+
+      clearTimeout(snapTimeout.current)
+      if (Math.abs(scrollAccumulator.current) >= snapThreshold) {
+        const direction = scrollAccumulator.current > 0 ? 1 : -1
+        const targetIndex = Math.max(0, Math.min(slides.length - 1, currentImageIndex + direction))
+        if (targetIndex !== currentImageIndex) {
+          snapToIndex(targetIndex)
+        } else {
+          snapToIndex(currentImageIndex)
+        }
+      } else {
+        snapTimeout.current = setTimeout(() => {
+          if (!isSnapping) {
+            snapToIndex(currentImageIndex)
+          }
+        }, 150)
+      }
+    }
+
+    const handleTouchEnd = () => {
+      if (!isTouching.current) return
+      isTouching.current = false
+      clearTimeout(snapTimeout.current)
+      if (!isSnapping) {
+        snapToIndex(currentImageIndex)
+      }
+      touchStartY.current = null
+      touchLastY.current = null
+    }
+
+    node.addEventListener('touchstart', handleTouchStart, { passive: false })
+    node.addEventListener('touchmove', handleTouchMove, { passive: false })
+    node.addEventListener('touchend', handleTouchEnd, { passive: false })
+    node.addEventListener('touchcancel', handleTouchEnd, { passive: false })
+
+    return () => {
+      node.removeEventListener('touchstart', handleTouchStart)
+      node.removeEventListener('touchmove', handleTouchMove)
+      node.removeEventListener('touchend', handleTouchEnd)
+      node.removeEventListener('touchcancel', handleTouchEnd)
+    }
+  }, [slides, currentImageIndex, isSnapping, embedEnabled, snapToIndex, showScrollHint])
 
   // Fallback pro single image nebo no images
   if (!slides || slides.length === 0) {
