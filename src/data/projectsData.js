@@ -88,7 +88,7 @@ export const projectsData = {
       ],
       // EN
     description: 'Final project for the 2D Game Programming course. A 2D game inspired by the film The Martian, built in Unity with C#. The player completes film-inspired quests (bringing the habitat online and maintaining it, repairing equipment, progressing through missions). Focused on quests, UI, animations, and a smooth game loop. Collaboration with <a href="https://www.patrikmana.cz" target="_blank" rel="noopener noreferrer">Patrik</a> — great team synergy, and we plan to continue building projects together.',
-      category: 'Unity + C#'
+      category: 'SCHOOL'
     },
     cz: {
       title: ['The Martian'],
