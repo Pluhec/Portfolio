@@ -74,10 +74,20 @@ export const projectsData = {
           type: 'github', 
           text: 'Github',
           url: 'https://github.com/Pluhec/The-Martian'
+        },
+        {
+          type: 'youtube',
+          text: 'Gameplay (YouTube)',
+          url: 'https://www.youtube.com/watch?v=vYybulpysFw&t=508s'
+        },
+        {
+          type: 'youtube',
+          text: 'Film Comparison (YouTube)',
+          url: 'https://www.youtube.com/watch?v=eXUsnsTkT-I'
         }
       ],
       // EN
-    description: 'Final project for the 2D Game Programming course. A 2D game inspired by the film The Martian, built in Unity with C#. The player completes film-inspired quests (bringing the habitat online and maintaining it, repairing equipment, progressing through missions). Focused on quests, UI, animations, and a smooth game loop. Collaboration with <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrik</a> — great team synergy, and we plan to continue building projects together.',
+    description: 'Final project for the 2D Game Programming course. A 2D game inspired by the film The Martian, built in Unity with C#. The player completes film-inspired quests (bringing the habitat online and maintaining it, repairing equipment, progressing through missions). Focused on quests, UI, animations, and a smooth game loop. Collaboration with <a href="https://www.patrikmana.cz" target="_blank" rel="noopener noreferrer">Patrik</a> — great team synergy, and we plan to continue building projects together.',
       category: 'Unity + C#'
     },
     cz: {
@@ -88,10 +98,20 @@ export const projectsData = {
           type: 'github',  
           text: 'Github',
           url: 'https://github.com/Pluhec/The-Martian'
+        },
+        {
+          type: 'youtube',
+          text: 'Gameplay hry (YouTube)',
+          url: 'https://www.youtube.com/watch?v=vYybulpysFw&t=508s'
+        },
+        {
+          type: 'youtube',
+          text: 'Porovnání s filmem (YouTube)',
+          url: 'https://www.youtube.com/watch?v=eXUsnsTkT-I'
         }
       ],
       // CZ
-    description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspirovaná filmem Marťan (The Martian), postavená v Unity s C#. Hráč plní úkoly po vzoru filmu (zprovoznění a údržba základny, opravy vybavení, postup přes jednotlivé mise). Důraz na questy, UI, animace a plynulý herní loop. Spolupráce s <a href="https://github.com/PatrikMana" target="_blank" rel="noopener noreferrer">Patrikem</a> — skvělá týmová souhra, chceme na podobných projektech pokračovat.',
+    description: 'Klauzurní práce z předmětu Programování 2D her. 2D hra inspirovaná filmem Marťan (The Martian), postavená v Unity s C#. Hráč plní úkoly po vzoru filmu (zprovoznění a údržba základny, opravy vybavení, postup přes jednotlivé mise). Důraz na questy, UI, animace a plynulý herní loop. Spolupráce s <a href="https://www.patrikmana.cz" target="_blank" rel="noopener noreferrer">Patrikem</a> — skvělá týmová souhra, chceme na podobných projektech pokračovat.',
       category: 'ŠKOLA'
     },
     image: '/Assets/Photos/Work/Martian/TheMartian.png',

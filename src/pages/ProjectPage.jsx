@@ -88,6 +88,7 @@ export default function ProjectPage() {
                 images={project.images}
                 alt={project.title.join(' ')}
                 className=""
+                embedUrls={(project.buttons || []).filter(b => b.type === 'youtube').map(b => b.url)}
               />
             ) : (
               <OptimizedImage 
@@ -111,6 +112,7 @@ export default function ProjectPage() {
               images={project.images}
               alt={project.title.join(' ')}
               className=""
+              embedUrls={(project.buttons || []).filter(b => b.type === 'youtube').map(b => b.url)}
             />
           ) : (
             <OptimizedImage 

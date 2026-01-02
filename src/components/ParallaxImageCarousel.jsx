@@ -1,18 +1,39 @@
 import { useState, useEffect, useRef } from 'react'
 import OptimizedImage from './OptimizedImage'
 
-export default function ParallaxImageCarousel({ images, alt, className }) {
+export default function ParallaxImageCarousel({ images, alt, className, leadEmbed = null, embedUrls = null }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isSnapping, setIsSnapping] = useState(false)
+  const [embedEnabled, setEmbedEnabled] = useState(false)
   const containerRef = useRef(null)
   const scrollAccumulator = useRef(0)
   const snapTimeout = useRef(null)
 
+  const buildSlides = () => {
+    const slides = []
+    const list = (embedUrls && embedUrls.length)
+      ? embedUrls
+      : (leadEmbed ? [leadEmbed] : [])
+
+    list.forEach(url => slides.push({ type: 'embed', url }))
+    if (images && images.length) {
+      slides.push(...images.map(src => ({ type: 'image', src })))
+    }
+    return slides
+  }
+
+  const slides = buildSlides()
+
   useEffect(() => {
-    if (!images || images.length <= 1) return
+    if (!slides || slides.length <= 1) return
 
     const handleWheel = (e) => {
+      // If current slide is an embed and user enabled interaction, let iframe consume wheel
+      if (slides[currentImageIndex]?.type === 'embed' && embedEnabled) {
+        return
+      }
+
       e.preventDefault()
       
       if (isSnapping) return
@@ -30,7 +51,7 @@ export default function ParallaxImageCarousel({ images, alt, className }) {
       const newPosition = basePosition + scrollAccumulator.current
       
       // Omezíme pozici v rámci možností
-      const maxPosition = (images.length - 1) * containerHeight
+      const maxPosition = (slides.length - 1) * containerHeight
       const constrainedPosition = Math.max(0, Math.min(maxPosition, newPosition))
       
       setScrollPosition(constrainedPosition)
@@ -41,7 +62,7 @@ export default function ParallaxImageCarousel({ images, alt, className }) {
       // Kontrola jestli máme snapnout na další/předchozí obrázek
       if (Math.abs(scrollAccumulator.current) >= snapThreshold) {
         const direction = scrollAccumulator.current > 0 ? 1 : -1
-        const targetIndex = Math.max(0, Math.min(images.length - 1, currentImageIndex + direction))
+        const targetIndex = Math.max(0, Math.min(slides.length - 1, currentImageIndex + direction))
         
         if (targetIndex !== currentImageIndex) {
           // Snap na nový obrázek
@@ -100,21 +121,46 @@ export default function ParallaxImageCarousel({ images, alt, className }) {
       window.removeEventListener('wheel', handleWheel)
       clearTimeout(snapTimeout.current)
     }
-  }, [images, currentImageIndex, scrollPosition, isSnapping])
+  }, [embedUrls, leadEmbed, images, currentImageIndex, scrollPosition, isSnapping, embedEnabled])
 
   // Fallback pro single image nebo no images
-  if (!images || images.length === 0) {
+  if (!slides || slides.length === 0) {
     return null
   }
 
-  if (images.length === 1) {
+  if (slides.length === 1) {
+    const only = slides[0]
     return (
       <div className={className} ref={containerRef}>
-        <OptimizedImage 
-          className="animate__animated animate__zoomIn" 
-          src={images[0]} 
-          alt={alt}
-        />
+        {only.type === 'image' ? (
+          <OptimizedImage 
+            className="animate__animated animate__zoomIn" 
+            src={only.src} 
+            alt={alt}
+          />
+        ) : (
+          <div className="parallax-embed-wrapper">
+            <iframe
+              className="parallax-embed animate__animated animate__zoomIn"
+              src={toYouTubeEmbedUrl(only.url)}
+              title={alt}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              style={{ pointerEvents: embedEnabled ? 'auto' : 'none' }}
+            />
+            {!embedEnabled ? (
+              <button className="parallax-embed-overlay" onClick={() => setEmbedEnabled(true)}>
+                ▶ Play video
+              </button>
+            ) : (
+              <button className="parallax-embed-exit" onClick={() => setEmbedEnabled(false)}>
+                × Exit video
+              </button>
+            )}
+          </div>
+        )}
       </div>
     )
   }
@@ -123,15 +169,15 @@ export default function ParallaxImageCarousel({ images, alt, className }) {
   const containerHeight = 80
   const visibleImages = []
   
-  images.forEach((src, index) => {
+  slides.forEach((slide, index) => {
     const imagePosition = index * containerHeight - scrollPosition
     
     // Zobrazíme obrázky které jsou viditelné nebo blízko
     if (imagePosition > -containerHeight && imagePosition < containerHeight + containerHeight) {
       visibleImages.push({
-        index: index,
+        index,
         position: imagePosition,
-        src: src
+        slide
       })
     }
   })
@@ -147,14 +193,74 @@ export default function ParallaxImageCarousel({ images, alt, className }) {
               transform: `translateY(${image.position}vh)`
             }}
           >
-            <OptimizedImage
-              className="parallax-image"
-              src={image.src}
-              alt={`${alt} ${image.index + 1}`}
-            />
+            {image.slide.type === 'image' ? (
+              <OptimizedImage
+                className="parallax-image"
+                src={image.slide.src}
+                alt={`${alt} ${image.index + 1}`}
+              />
+            ) : (
+              <div className="parallax-embed-wrapper">
+                <iframe
+                  className="parallax-embed"
+                  src={toYouTubeEmbedUrl(image.slide.url)}
+                  title={`${alt} ${image.index + 1}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  style={{ pointerEvents: embedEnabled ? 'auto' : 'none' }}
+                />
+                {currentImageIndex === image.index && (!embedEnabled ? (
+                  <button className="parallax-embed-overlay" onClick={() => setEmbedEnabled(true)}>
+                    ▶ Play video
+                  </button>
+                ) : (
+                  <button className="parallax-embed-exit" onClick={() => setEmbedEnabled(false)}>
+                    × Exit video
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
     </div>
   )
+}
+
+// Converts standard YouTube URLs to embeddable URLs and preserves start time
+function toYouTubeEmbedUrl(url) {
+  try {
+    const u = new URL(url)
+    if (u.hostname.includes('youtube.com')) {
+      const videoId = u.searchParams.get('v')
+      const start = u.searchParams.get('t')
+      const embed = new URL(`https://www.youtube.com/embed/${videoId}`)
+      if (start) {
+        const seconds = parseInt(start, 10) || 0
+        embed.searchParams.set('start', String(seconds))
+      }
+      embed.searchParams.set('rel', '0')
+      embed.searchParams.set('modestbranding', '1')
+      embed.searchParams.set('enablejsapi', '1')
+      return embed.toString()
+    }
+    if (u.hostname.includes('youtu.be')) {
+      const videoId = u.pathname.replace('/', '')
+      const start = u.searchParams.get('t')
+      const embed = new URL(`https://www.youtube.com/embed/${videoId}`)
+      if (start) {
+        const seconds = parseInt(start, 10) || 0
+        embed.searchParams.set('start', String(seconds))
+      }
+      embed.searchParams.set('rel', '0')
+      embed.searchParams.set('modestbranding', '1')
+      embed.searchParams.set('enablejsapi', '1')
+      return embed.toString()
+    }
+    return url
+  } catch {
+    return url
+  }
 }
