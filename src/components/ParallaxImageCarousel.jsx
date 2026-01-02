@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import OptimizedImage from './OptimizedImage'
 
-export default function ParallaxImageCarousel({ images, alt, className, leadEmbed = null, embedUrls = null }) {
+export default function ParallaxImageCarousel({ images, alt, className, leadEmbed = null, embedUrls = null, hintText = null }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isSnapping, setIsSnapping] = useState(false)
   const [embedEnabled, setEmbedEnabled] = useState(false)
+  const [showScrollHint, setShowScrollHint] = useState(false)
   const containerRef = useRef(null)
   const scrollAccumulator = useRef(0)
   const snapTimeout = useRef(null)
@@ -25,6 +26,45 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
 
   const slides = buildSlides()
 
+  // Smooth snap to a specific slide index
+  const snapToIndex = useCallback((targetIndex) => {
+    const clamped = Math.max(0, Math.min(slides.length - 1, targetIndex))
+    setIsSnapping(true)
+    setCurrentImageIndex(clamped)
+
+    const targetPosition = clamped * 80
+    const startPosition = scrollPosition
+    const distance = targetPosition - startPosition
+    const duration = 300
+    const startTime = Date.now()
+
+    const animateSnap = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const currentPos = startPosition + (distance * easeOut)
+      setScrollPosition(currentPos)
+      if (progress < 1) {
+        requestAnimationFrame(animateSnap)
+      } else {
+        scrollAccumulator.current = 0
+        setIsSnapping(false)
+      }
+    }
+
+    requestAnimationFrame(animateSnap)
+  }, [slides.length, scrollPosition])
+
+  // Show scroll hint when multiple slides exist (hide only on scroll/click)
+  useEffect(() => {
+    if (slides.length > 1) {
+      setShowScrollHint(true)
+      return () => {}
+    } else {
+      setShowScrollHint(false)
+    }
+  }, [images, embedUrls, leadEmbed])
+
   useEffect(() => {
     if (!slides || slides.length <= 1) return
 
@@ -41,6 +81,8 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
       const scrollDelta = e.deltaY
       const scrollSensitivity = 1.2
       const snapThreshold = 40 // Práh pro trigger snap efektu
+
+      if (showScrollHint) setShowScrollHint(false)
       
       // Akumulujeme scroll
       scrollAccumulator.current += scrollDelta * scrollSensitivity
@@ -66,53 +108,19 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
         
         if (targetIndex !== currentImageIndex) {
           // Snap na nový obrázek
-          snapToImage(targetIndex)
+          snapToIndex(targetIndex)
         } else {
           // Snap zpět na aktuální obrázek (dosáhli jsme konce)
-          snapToImage(currentImageIndex)
+          snapToIndex(currentImageIndex)
         }
       } else {
         // Nastavíme timeout pro snap zpět pokud uživatel přestane scrollovat
         snapTimeout.current = setTimeout(() => {
           if (!isSnapping) {
-            snapToImage(currentImageIndex)
+            snapToIndex(currentImageIndex)
           }
         }, 150)
       }
-    }
-
-    const snapToImage = (targetIndex) => {
-      setIsSnapping(true)
-      setCurrentImageIndex(targetIndex)
-      
-      const targetPosition = targetIndex * 80
-      
-      // Smooth animace na cílovou pozici
-      const startPosition = scrollPosition
-      const distance = targetPosition - startPosition
-      const duration = 300 // ms
-      const startTime = Date.now()
-      
-      const animateSnap = () => {
-        const elapsed = Date.now() - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        
-        // Easing function (ease-out)
-        const easeOut = 1 - Math.pow(1 - progress, 3)
-        
-        const currentPos = startPosition + (distance * easeOut)
-        setScrollPosition(currentPos)
-        
-        if (progress < 1) {
-          requestAnimationFrame(animateSnap)
-        } else {
-          // Reset po dokončení animace
-          scrollAccumulator.current = 0
-          setIsSnapping(false)
-        }
-      }
-      
-      requestAnimationFrame(animateSnap)
     }
 
     window.addEventListener('wheel', handleWheel, { passive: false })
@@ -121,7 +129,7 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
       window.removeEventListener('wheel', handleWheel)
       clearTimeout(snapTimeout.current)
     }
-  }, [embedUrls, leadEmbed, images, currentImageIndex, scrollPosition, isSnapping, embedEnabled])
+  }, [embedUrls, leadEmbed, images, currentImageIndex, scrollPosition, isSnapping, embedEnabled, snapToIndex, showScrollHint])
 
   // Fallback pro single image nebo no images
   if (!slides || slides.length === 0) {
@@ -225,6 +233,12 @@ export default function ParallaxImageCarousel({ images, alt, className, leadEmbe
           </div>
         ))}
       </div>
+      {showScrollHint && slides.length > 1 && (
+        <div className="parallax-hint" onClick={() => { setShowScrollHint(false); snapToIndex(currentImageIndex + 1) }}>
+          <img src="/Assets/Icons/down-arrow.png" alt="scroll down" />
+          {hintText ? <span>{hintText}</span> : null}
+        </div>
+      )}
     </div>
   )
 }

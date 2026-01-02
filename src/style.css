@@ -1633,6 +1633,43 @@ footer a{
     .parallax-embed-exit { font-size: 3.2vw; }
 }
 
+/* Subtle scroll hint at bottom of parallax */
+.parallax-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 1vw, 10px);
+    padding: clamp(4px, 0.8vw, 8px) clamp(8px, 1.6vw, 14px);
+    background: var(--clr-button);
+    color: var(--clr-dark);
+    border-radius: 40px;
+    font-family: var(--ff-book-disp);
+    font-size: clamp(10px, 1.6vw, 14px);
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 3;
+    animation: hint-bounce 1.4s ease-in-out infinite;
+}
+
+.parallax-hint img {
+    width: clamp(16px, 2.8vw, 24px);
+    height: clamp(16px, 2.8vw, 24px);
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .parallax-hint { bottom: 10px; }
+}
+
+@keyframes hint-bounce {
+    0% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 3px); }
+    100% { transform: translate(-50%, 0); }
+}
+
 /* Overlay buttons inside parallax container */
 .parallax-overlay-buttons {
     position: absolute;

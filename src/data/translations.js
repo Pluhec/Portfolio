@@ -106,7 +106,8 @@ export const translations = {
     project: {
       about: 'About',
       notFound: 'Project not found',
-      backToHome: 'Back to Home'
+      backToHome: 'Back to Home',
+      scrollHint: 'Scroll to explore'
     },
 
     // Common
@@ -226,7 +227,8 @@ export const translations = {
     project: {
       about: 'O projektu',
       notFound: 'Projekt nenalezen',
-      backToHome: 'Zpět na hlavní stránku'
+      backToHome: 'Zpět na hlavní stránku',
+      scrollHint: 'Scrolluj pro více'
     },
 
     // Common
